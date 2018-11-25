@@ -158,6 +158,11 @@
                         "direction": "column",
                         "items": [
                             {
+                                "type": "AlexaHeader",
+                                "headerTitle": "BROKEN HEADER",
+                                "headerAttributionImage": ""
+                            },
+                            {
                                 "when": "${@viewportProfile == @hubRoundSmall}",
                                 "type": "Sequence",
                                 "scrollDirection": "horizontal",
@@ -288,6 +293,11 @@
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                "when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge || @viewportProfile == @tvLandscapeXLarge}",
+                                "type": "AlexaFooter",
+                                "footerHint": "BROKEN FOOTER"
                             }
                         ]
                     }
