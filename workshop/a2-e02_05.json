@@ -1,0 +1,28 @@
+{
+    "sauceBossData": {
+        "type": "object",
+        "properties": {
+            "selectedSauceSsml": "<speak>To make pizza sauce, mix together 1 can tomato sauce and 1 can tomato paste in a medium bowl until smooth. Stir in 1 tablespoon oregano, 1 1/2 teaspoons dried minced garlic, and 1 teaspoon paprika.</speak>",
+            "selectedSauce": "pizza",
+            "selectSauceCaps": "PIZZA",
+            "selectedSauceImg": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
+            "hintString": "how do I make pesto?"
+        },
+        "transformers": [
+            {
+                "inputPath": "selectedSauceSsml",
+                "outputName": "selectedSauceSpeech",
+                "transformer": "ssmlToSpeech"
+            },
+            {
+                "inputPath": "selectedSauceSsml",
+                "outputName": "selectedSauceText",
+                "transformer": "ssmlToText"
+            },
+            {
+                "inputPath": "hintString",
+                "transformer": "textToHint"
+            }
+        ]
+    }
+}

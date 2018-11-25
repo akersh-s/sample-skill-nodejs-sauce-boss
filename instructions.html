@@ -1,0 +1,2088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.8">
+<title>ALX314 Build an Interactive Alexa Voice Experience for Multiple Screens</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Uncomment @import statement below to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock pre.nowrap,.literalblock pre.nowrap pre,.listingblock pre.nowrap,.listingblock pre.nowrap pre{white-space:pre;word-wrap:normal}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #dddddf}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd){background:#f8f8f7}
+table.stripes-none tr,table.stripes-odd tr:nth-of-type(even){background:none}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>ALX314 Build an Interactive Alexa Voice Experience for Multiple Screens</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_getting_started">Getting Started</a>
+<ul class="sectlevel2">
+<li><a href="#_pre_requisites">Pre-requisites</a></li>
+<li><a href="#_alexa_skill_basics">Alexa Skill Basics</a></li>
+<li><a href="#_instructions">Instructions</a></li>
+<li><a href="#_conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#_activity_part_i">Activity: Part I</a>
+<ul class="sectlevel2">
+<li><a href="#_add_visuals_to_sauce_boss_with_an_apl_document">Add Visuals to Sauce Boss with an APL Document</a></li>
+<li><a href="#_conclusion_2">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#_activity_part_ii">Activity: Part II</a>
+<ul class="sectlevel2">
+<li><a href="#_databinding_with_apl">Databinding with APL</a></li>
+<li><a href="#_make_your_template_dynamic">Make Your Template Dynamic</a></li>
+<li><a href="#_conclusion_3">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#_activity_part_iii">Activity: Part III</a>
+<ul class="sectlevel2">
+<li><a href="#_transformers">Transformers</a></li>
+<li><a href="#_speech_synchronization">Speech Synchronization</a></li>
+<li><a href="#_conclusion_4">Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#_activity_part_iv">Activity: Part IV</a>
+<ul class="sectlevel2">
+<li><a href="#_touch_events">Touch Events</a></li>
+<li><a href="#_conclusion_5">Conclusion</a></li>
+<li><a href="#_bonus">BONUS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_getting_started">Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sauce Boss, Inc. has made a skill called Sauce Boss. This skill helps people make all sorts of unique sauces from basic condiments and spices that are available in a common kitchen.</p>
+</div>
+<div class="paragraph">
+<p>Sauce Boss has been a five star, voice-first skill, with amazing engagement from all its happy customers! Sauce Boss, Inc. has expressed great interest in scaling this skill and enhancing the experience for all of its customers.</p>
+</div>
+<div class="paragraph">
+<p>Sauce Boss, Inc. wants to present a unique, unparalleled sauce creating experience across the entire multi-modal Alexa device family of Echo Spots, Echo TVs and Echo Shows.</p>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll use Sauce Boss, Inc.'s graphic assets and storyboard to build the display leveraging APL.</p>
+</div>
+<div class="sect2">
+<h3 id="_pre_requisites">Pre-requisites</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This guide has been written to introduce APL. As a workshop attendee, you&#8217;ll gain exclusive access to our closed Private Beta for Alexa Hosted skills! To sign-up for the Alexa Hosted Skills Beta, login to the developer portal, open this link: <a href="https://developer.amazon.com/alexa/console/ask/editor/register" class="bare">https://developer.amazon.com/alexa/console/ask/editor/register</a> in a new window, and enter the code you were provided upon entry. Once you&#8217;ve registered the code to your account you can proceed through the rest of this guide.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alexa_skill_basics">Alexa Skill Basics</h3>
+<div class="paragraph">
+<p>Before we get started it&#8217;s important to understand how an Alexa skill works.</p>
+</div>
+<div class="paragraph">
+<p>When a customer says the <strong>wake word</strong> the Alexa Service analyzes what the customer said using Speech Recognition, Machine Mearning and Natural Language Understanding. Don&#8217;t be intimidated by these complicated sounding words, you don&#8217;t need a deep understanding of how they work in order to build an Alexa skill. You should focus on how people will converse with your skill and design a <strong>voice user interaction model</strong>, which dictates how the Alexa Services&#8217;s speech science engines will interpret what the user says. This information is mapped to an <strong>Intent</strong> that&#8217;s defined in your model and is sent as a JSON Request to your skill&#8217;s back-end service.</p>
+</div>
+<div class="paragraph">
+<p>When your service receives the request, your skill will unpack it, determine what to do with it an return a JSON response back to the Alexa Service. The service will then unpack the response and determine what to do with it. If you return a <strong>Speechlet</strong> the Alexa Service will use Text to Speech to convert the provided text to audio. If you return an APL Directive and the device has a screen the APL document will be rendered and displayed on the screen.</p>
+</div>
+<div class="paragraph">
+<p>The image below represents a high level view of how an Alexa Skill works within the Alexa Service.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/skill-diagram.png" alt="alexa skill diagram">
+</div>
+<div class="title">Figure 1. Alexa Skill Diagram</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instructions">Instructions</h3>
+<div class="sect3">
+<h4 id="_skill_creation">Skill Creation</h4>
+<div class="paragraph">
+<p><strong>1.</strong> Go to the <a href="https://developer.amazon.com/alexa" target="_blank" rel="noopener">Amazon Alexa Developer Portal</a>. In the top-right corner of the screen, click the <a href="https://www.amazon.com/ap/signin?openid.return_to=https%3A%2F%2Fdeveloper.amazon.com%2Falexa&amp;openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;openid.assoc_handle=mas_dev_portal&amp;openid.mode=checkid_setup&amp;marketPlaceId=ATVPDKIKX0DER&amp;openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&amp;pageId=amzn_developer_portal&amp;openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&amp;siteState=clientContext%3D135-2587902-6844734%2CsourceUrl%3Dhttps%253A%252F%252Fdeveloper.amazon.com%252Falexa%2Csignature%3Dnull&amp;language=en_US" target="_blank" rel="noopener">Sign In</a> button. If you don&#8217;t already have an account, you will be able to create a new one for free.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.</strong> Once you have signed in, mouse over <strong>Your Alexa Consoles</strong> at the top of the screen and Select the <strong>Skills</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e01_01-03_login-and-create.gif" alt="Select Alexa Developer Console">
+</div>
+<div class="title">Figure 2. Selecting <strong>Skills</strong> from the <strong>Your Alexa Consoles</strong> menu</div>
+</div>
+<div class="paragraph">
+<p><strong>3.</strong> From the Alexa Developer Console click the <strong>Create Skill</strong> button near the top of the screen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e01_03_create-skill.png" alt="create skill button">
+</div>
+<div class="title">Figure 3. The <strong>Create Skill</strong> Button</div>
+</div>
+<div class="paragraph">
+<p><strong>4.</strong> For this workshop, we&#8217;ll name our skill Sauce Boss.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you were to publish your skill, this is the name that will be shown in the Alexa Skills Store.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From this screen, there&#8217;s several skill models we can choose and they each have their unique properties. For this workshop we&#8217;re building a <strong>Custom Skill</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>5.</strong> Select the <strong>Custom</strong> model.</p>
+</div>
+<div class="paragraph">
+<p><strong>6.</strong> Select a method for hosting your skill, for this workshop, choose <strong>Alexa Hosted</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>7.</strong> Select the <strong>Create Skill</strong> button on the top right.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e01_04-07_create-skill.gif" alt="Creating Alexa Hosted Skill">
+</div>
+<div class="title">Figure 4. Creating an Alexa Hosted Skill - Beta</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After clicking create, the system will initialize your project. Upon completion you&#8217;ll be able to begin working on your skill.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>8.</strong> On the left hand navigation panel find the <strong>Interfaces</strong> tab and toggle APL to <strong>On</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e01_08_activate-display-interface.gif" alt="activate display interface">
+</div>
+<div class="title">Figure 5. Activing the display interface</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+🏆 Congratulations, your skill is now ready to support APL directives!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now that you&#8217;ve created your skill and activated the APL directives, its now time to build your front-end and back-end so you&#8217;ll be able to handle requests from your customers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_front_end">Front-end</h4>
+<div class="paragraph">
+<p>The interaction model is the voice user interface for your skill. It defines how your customers will interact with your skill. Normally you would spend a significant amount of time designing and perfecting this to ensure that your skill delights your customers. To foucs on our learning APL, our design team provided a pre-built voice user interaction model for us to you.</p>
+</div>
+<div class="paragraph">
+<p><strong>9.</strong> On the left hand navigation panel, click <strong>JSON Editor</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>10.</strong> Copy and paste the JSON from this link into the main window in the <strong>JSON Editor Panel</strong>. Select <strong>Save</strong> and then <strong>Build Model</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e09_10_paste-model.gif" alt="updating the model">
+</div>
+<div class="title">Figure 6. Updating the Voice User Interaction Model</div>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+This is a note to add the actual link mentioned above into the guide and remove this caution tag!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_back_end">Back-end</h4>
+<div class="paragraph">
+<p>Now that we&#8217;ve built our Voice User Interaction model, which provides the training data to the Alexa Service so it knows how to interpret what the customer has said, we are now going to create our back-end service so we can return a response.</p>
+</div>
+<div class="paragraph">
+<p><strong>11.</strong> On the top navigation, select the <strong>Code</strong> hyperlink. Alexa hosted skills allows us to edit, configure, and change the back-end of our code without leaving the developer portal.</p>
+</div>
+<div class="paragraph">
+<p><strong>12.</strong> Select <strong>index.js</strong> on the left-hand navigation. Copy and Paste the code from this link into the <strong>index.js</strong> file in the Developer Portal window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e11_12_create-index.js.gif" alt="updating index.js">
+</div>
+<div class="title">Figure 7. Updating the <strong>index.js</strong> file</div>
+</div>
+<div class="paragraph">
+<p><strong>13.</strong> Click on the <strong>package.json</strong> file and paste the following JSON and click save.</p>
+</div>
+<div class="literalblock">
+<div class="title">package.json</div>
+<div class="content">
+<pre>{
+    "name": "sauce-boss",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "ask-sdk-core": "^2.0.0",
+        "ask-sdk-model": "^1.0.0",
+        "i18next": "^10.5.0",
+        "i18next-sprintf-postprocessor": "^0.2.2"
+    }
+}</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e13_package.json.gif" alt="updating package.json">
+</div>
+<div class="title">Figure 8. Updating <strong>package.json</strong></div>
+</div>
+<div class="paragraph">
+<p><strong>14.</strong> Click the <strong>deploy</strong> button.</p>
+</div>
+<div class="paragraph">
+<p>Doing so will deploy your skill&#8217;s backend. Once it&#8217;s finished deploying, you&#8217;ll be able to test your skill.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_testing">Testing</h4>
+<div class="paragraph">
+<p><strong>15.</strong> Now it&#8217;s time to test our skill. To do that, click the <strong>Test</strong> tab in the top navigation.</p>
+</div>
+<div class="paragraph">
+<p><strong>16.</strong> Type <code>open sauce boss</code> into the text box to simulate a user utterance to your skill. You can try interacting fully with the skill here. Over the next few activities, we&#8217;ll enhance our skill&#8217;s experience with visuals that will automatically scale to fit whatever screen size.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a0-e15_testing-a-skill.gif" alt="testing a skill">
+</div>
+<div class="title">Figure 9. Testing <strong>Sauce Boss</strong> in the simulator</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion">Conclusion</h3>
+<div class="paragraph">
+<p>In this activity you:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Created an Alexa Skill</p>
+</li>
+<li>
+<p>Enabled APL</p>
+</li>
+<li>
+<p>Created your Voice User Interaction Model</p>
+</li>
+<li>
+<p>Created your skill&#8217;s backend service with AWS Lambda</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Like a boss!</strong> <span class="image"><img src="images/skill-icon.png" alt="The Sauce Boss"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activity_part_i">Activity: Part I</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_add_visuals_to_sauce_boss_with_an_apl_document">Add Visuals to Sauce Boss with an APL Document</h3>
+<div class="paragraph">
+<p>In the first activity we created the Sauce Boss skill. While testing your skill in the simluator, you may have noticed your skill is lacking its screens. Sauce Boss Inc. is relying on us to add the visuals to the skill. Let&#8217;s start by creating the screen for the LaunchRequest, which displays when the customer says, "Alexa, open sauce boss." To do that, we&#8217;ll create an APL Document and send it as a Directive to the Alexa Service from our Skill&#8217;s back-end service.</p>
+</div>
+<div class="sect3">
+<h4 id="_starting_from_storyboards">Starting from Storyboards</h4>
+<div class="paragraph">
+<p>Here&#8217;s the storyboard our designer left with us. We can see exactly what the visual component of a particular interaction should look like. Notice how each of the four panels shows viewports for two types of displays, the small round hub display, or what the customer will see on a device with a form factor like the Echo Dot, and below it the large Hub display, or what the customer will see on devices with a form factor like the Echo Show. It&#8217;s good practice to start designing from the smallest form factor and expanding outwards.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/storyboard.png" alt="storyboard">
+</div>
+<div class="title">Figure 10. Sauce Boss Storyboard</div>
+</div>
+<div class="paragraph">
+<p>In this activity, we&#8217;ll be creating the visual component of the launch request. After a customer invokes Sauce Boss by saying "Alexa, open Sauce Boss" they should be presented with a welcome message and some options. We can see exactly this interaction in the second panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_building_an_apl_document">Building an APL Document</h4>
+<div class="paragraph">
+<p><strong>1.1</strong> Open the code tab in the <strong>Amazon Developer Portal</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.2.</strong> Click the new folder button to create a new folder called <strong>documents</strong> inside the <strong>lambda/custom</strong> directory.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We will save all of our APL documents into this folder. Technically we can save our APL Documents any where, but it&#8217;s a best practice to separate them from your coding logic.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>1.3.</strong> Create a new file called <strong>launchrequest.json</strong> in your newly created <strong>documents</strong> folder. We&#8217;ll come back to fill this out later with the resulting document from the APL Authoring Tool.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.4.</strong> In a new browser tab, open the <strong>APL Authoring Tool</strong>. You can do so by selecting the option for <strong>Display</strong> on the left hand navigation of the <strong>Build</strong> tab, or you can click this link: [<a href="https://developer.amazon.com/alexa/console/ask/displays" class="bare">https://developer.amazon.com/alexa/console/ask/displays</a>]</p>
+</div>
+<div class="paragraph">
+<p><strong>1.5</strong> On the Authoring Tool. Select <strong>Start from Scratch</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.6</strong> Slide the toggle from the Triple Pane Editor to the Single Pane View.</p>
+</div>
+<div class="paragraph">
+<p><strong>Before:</strong> <span class="image"><img src="images/ui/toggle-layout-view.png" alt="Layout View"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>After:</strong> <span class="image"><img src="images/ui/toggle-code-view.png" alt="Code View"></span></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Now we have a scratch APL Document. Let&#8217;s learn about all the elements that compose one.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">The fundamental elements of an empty APL document.</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark", <i class="conum" data-value="1"></i><b>(1)</b>
+    "import": [], <i class="conum" data-value="2"></i><b>(2)</b>
+    "resources": [], <i class="conum" data-value="3"></i><b>(3)</b>
+    "styles": {}, <i class="conum" data-value="4"></i><b>(4)</b>
+    "layouts": {}, <i class="conum" data-value="5"></i><b>(5)</b>
+    "mainTemplate": { <i class="conum" data-value="6"></i><b>(6)</b>
+        "items": []
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>theme</code> reflects the basic color scheme in use on the device, options here are dark or light.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>Import</code> allows reference of external styles, resources, or layouts to be used by your APL document.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>Resources</code> are a constant used when drawing text, images, and layouts on the screen. Using a named constant allows reuse of an APL document across different devices by providing per-device resources.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td><code>Styles</code> are a collection of state-dependent resources. For example, the flatButton style defines the size, background color, text color, border color, border width, and border radius of one type of button for the "normal", "pressed", "focused", and "disabled" states. All APL components have a clearly documented list of styled properties.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td><code>Layouts</code> are composed of visual components. Portions of the layout can be dependent on the screen size/shape or and may include other layouts</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The <code>mainTemplate</code> property is a pre-defined layout. This is the layout that will be inflated when the APL document is first instantiated on the screen.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>1.7.</strong> Copy and Paste this following block of code into the document window. You should see a simulation of the APL Document in the viewport window!</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Akersh! update the above text to link to the actual file once it&#8217;s found it&#8217;s final resting place.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We can preview how the document will look across different devices by manipulating the viewport in the APL Authoring Tool. Viewports can be changed from small round, medium, large, and extra large and layouts can be optimized for each of these viewports.  It&#8217;s best practice to start developing with the smallest form factor.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>1.8.</strong> Switch the viewport from Medium Hub to Small Round Hub.</p>
+</div>
+<div class="paragraph">
+<p>Notice how the background is missing on the small hub but it was present on the medium hub? This is an example of dynamic layouts based on the viewport. Let&#8217;s go ahead and add this background.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We can set dynamic resources by setting a condition with the <code>when</code> parameter.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>1.9.</strong> Scroll down to <code>resources</code> on <code>line 19</code>. Copy and paste the following code block into the array on <code>line 20</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Add the Background Resource to the Small Round Hub</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "description": "Sauce boss background image assets",
+    "when": "${@viewportProfile == @hubRoundSmall}", <i class="conum" data-value="1"></i><b>(1)</b>
+    "strings": { <i class="conum" data-value="2"></i><b>(2)</b>
+        "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-smHub.png",
+        "backgroundLeft": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-left-smHub.png",
+        "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-smHub.png",
+        "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-smHub.png"
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Using a <code>when</code> parameter allows us to specify when a resource is active based on a certain condition. In this case, when the viewport is on the smallest hub, our background images will be sourced from these locations.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>These images are optimized for display on a round small hub. A good practice is to have assets optimized for the the different viewport profiles.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Now we can see what the screen looks like on different device types by changing our viewport so that we can simulate what the visual experience on different form factors. Looks like the header and footers are missing as well.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s edit the header first.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.10.</strong> Toggle the slider from single pane view to triple plane view.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.11.</strong> Click through the elements to find the <code>alexaHeader</code> type. Hint: This should be in the second container as the first item.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Notice how all the elements are nested? Using this nesting structure we can create a variety of custom screen types.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>1.12.</strong> You should see three attributes in the main editing window: <code>type</code>, <code>headerTitle</code> and <code>headerAttributionImage</code>. Fill out the <code>headerTitle</code> and <code>headerAttributionImage</code> following the example below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">    {
+        "type": "AlexaHeader",  <i class="conum" data-value="1"></i><b>(1)</b>
+        "headerTitle": "WELCOME TO SAUCE BOSS", <i class="conum" data-value="2"></i><b>(2)</b>
+        "headerAttributionImage": "@skillIcon" <i class="conum" data-value="3"></i><b>(3)</b>
+    },</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This is the header layout, which is defined by passing <code>AlexaHeader</code> as the type. This is a pre-defined APL layout that is included as a part of our import <code>alexa-layouts</code>. The benefit of using pre-defined APL layouts is that the design will have full support of all viewport sizes.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The header layout gives us the <code>headerTitle</code> parameter. This parameter sets the title of the header.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The header layout also gives us the <code>headerAttributionImage</code> parameter. This parameter allows you to change a standard attribution image. Right now it&#8217;s set to <code>@skillIcon</code> which is a transformer for receiving the skill icon. We&#8217;ll learn more about transformers in Activity III.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_integrate_an_apl_document_with_back_end_skill_code">Integrate an APL Document with Back-End Skill Code</h4>
+<div class="paragraph">
+<p><strong>1.13.</strong> Awesome work! You&#8217;ve successfully used the <strong>APL Authoring Tool</strong> to build a document. Now we&#8217;re going to integrate it with our skill code. Switch back to single pane view and Copy this entire json document. We&#8217;re going to be pasting this into your skill.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.14.</strong> Open your skill code in the Developer Portal.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.15</strong> In the documents folder, open <strong>launchrequest.json</strong> that we created earlier and paste the document from the <strong>APL Authoring Tool</strong> into this newly created file.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.16</strong> Now open <code>index.js</code> and find the <code>lauchRequestHandler</code>.  Find the <code>responsebuilder</code> API. It should be starting around <code>line 57</code>. Copy and paste the following directive in line.</p>
+</div>
+<div class="listingblock">
+<div class="title">Add the APL directive</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">.addDirective({ <i class="conum" data-value="1"></i><b>(1)</b>
+    type : 'Alexa.Presentation.APL.RenderDocument', <i class="conum" data-value="2"></i><b>(2)</b>
+    version: '1.0',
+    datasources: recipes, <i class="conum" data-value="3"></i><b>(3)</b>
+    document: require('./documents/launchrequest.json') <i class="conum" data-value="4"></i><b>(4)</b>
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>SDK method to add a custom directive.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Directive definition sent to the Alexa service.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Source from which data can be bound to the APL document. This can be dynamic as well.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Location of APL Document itself.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your final code should look something like this:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Final Response Builder API</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">let response = handlerInput.responseBuilder
+        .speak(speakOutput)
+        .reprompt(repromptOutput)
+        .addDirective({
+            type : 'Alexa.Presentation.APL.RenderDocument',
+            datasources: recipes,
+            document: require('./documents/launchrequest.json')
+        })
+    .getResponse();
+
+return response;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>1.17.</strong> Hit Save.</p>
+</div>
+<div class="paragraph">
+<p><strong>1.18.</strong> Open the Test tab. Type in "Alexa open sauce boss" to see your APL Document in action in both viewports the small round hub, and our medium hub!</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion_2">Conclusion</h3>
+<div class="paragraph">
+<p>In this activity you:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Created an APL Document from a Storyboard</p>
+</li>
+<li>
+<p>Created a Small Hub Layout, Edited a Background Resource</p>
+</li>
+<li>
+<p>Integrated the APL Document with the code</p>
+</li>
+<li>
+<p>Added support for Multiple Viewport Sizes</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Like a boss!</strong> <span class="image"><img src="images/skill-icon.png" alt="The Sauce Boss"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activity_part_ii">Activity: Part II</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_databinding_with_apl">Databinding with APL</h3>
+<div class="paragraph">
+<p>If a customer asks for a particular recipe from sauce boss, we need to be able to find that recipe and recite it back to the customer. We should also be able to display the recipe with a visual cue on the screen. We can take a look at our storyboard for an idea of what the APL Document needs to look like on both the small round hub viewport as well as the large hub viewport.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/recipe-screen.png" alt="Main Screen" width="506" height="370">
+</div>
+<div class="title">Figure 11. Recipe Screen</div>
+</div>
+<div class="paragraph">
+<p>After completing this activity, the skill will have a screen that shows recipes dynamically and works with many viewports.</p>
+</div>
+<div class="sect3">
+<h4 id="_build_the_apl_document">Build the APL Document</h4>
+<div class="paragraph">
+<p><strong>2.1.</strong> First start by opening up the <a href="https://developer.amazon.com/alexa/console/ask/displays/" target="_blank" rel="noopener">APL authoring tool</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.2.</strong> Click <span class="image"><img src="images/ui/button-start-from-scratch.png" alt="start from scratch" width="165" height="116"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>2.3.</strong> Slide the toggle from the Triple Pane Editor to the Single Pane View.</p>
+</div>
+<div class="paragraph">
+<p><strong>Before:</strong> <span class="image"><img src="images/ui/toggle-layout-view.png" alt="Layout View"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>After:</strong> <span class="image"><img src="images/ui/toggle-code-view.png" alt="Code View"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>2.4.</strong> Paste the <a href="https://console.aws.amazon.com/codesuite/codecommit/repositories/reinvent2018-sauce-boss/browse/refs/heads/master/--/lambda/custom/workshop/a2-e02_04.json" target="_blank" rel="noopener">starter template</a> into the code editor.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_01-05.gif" alt="Open Code Editor">
+</div>
+<div class="title">Figure 12. Steps 2.1 to 2.4</div>
+</div>
+<div class="paragraph">
+<p>At this point we&#8217;ve created an APL Document that has an image and an Alexa header hardcoded to <strong>pizza sauce</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Let’s add a few additional components for when a user says, "tell me more about pizza sauce." We want to show image of the sauce and the recipe. Next we will add an image component and text component to our APL Document. Let&#8217;s start with the image component.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.5</strong> In the code editor, go to <strong>line 77</strong> and paste the following <strong>JSON</strong> snippet into your template.</p>
+</div>
+<div class="listingblock">
+<div class="title">Image Component</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+    "when": "${@viewportProfile == @hubRoundSmall}", <i class="conum" data-value="1"></i><b>(1)</b>
+    "type": "Image",
+    "source": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
+    "scale": "best-fill",
+    "width": "100vw",
+    "height": "100vh",
+    "position": "absolute",
+    "overlayColor": "rgba(0, 0, 0, 0.6)",
+    "scrim": true
+},</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>when</code> property allows you to apply conditions to components. You can read it as, "when x is true, display following". In this case, we will display the component on a <strong>small hub</strong>.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_05-add-image-component.gif" alt="Paste Image Component">
+</div>
+<div class="title">Figure 13. Pasting the image component</div>
+</div>
+<div class="paragraph">
+<p>Now that we&#8217;ve added the image component, we&#8217;ll add our text component which we will also wrap in a scroll view.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.6.</strong> In the code editor scroll to line 109 and paste the following <strong>JSON</strong> snippet.</p>
+</div>
+<div class="listingblock">
+<div class="title">Text component wrapped in a ScrollView</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+    "type": "ScrollView",
+    "width": "100vw",
+    "height": "100vh",
+    "item": {
+        "type": "Container",
+        "direction": "column", <i class="conum" data-value="1"></i><b>(1)</b>
+        "alignItems": "center",
+        "paddingLeft": 30,
+        "paddingRight": 30,
+        "paddingBottom": 350,
+        "items": [
+            {
+                "type": "Text",
+                "text": "To make pizza sauce, mix together 1 can tomato sauce and 1 can tomato paste in a medium bowl until smooth. Stir in 1 tablespoon oregano, 1 1/2 teaspoons dried minced garlic, and 1 teaspoon paprika.",
+                "width": "75vw",
+                "textAlign": "center",
+                "fontSize": "7vh",
+                "fontWeight": 300
+            }
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><strong>direction</strong> - Sets the direction of the scroll view. <strong>Column</strong> scrolls left and right while <strong>vertical</strong> scrolls up and down.</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_06-add-text-component.gif" alt="Paste Text Component">
+</div>
+<div class="title">Figure 14. Pasting the text component</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We&#8217;ve only added the image component and the text component to the <strong>small hub</strong> viewport. We now need to add them to our medium and large hub viewports. Since these two are both similar enough we will only need to define this once.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>2.7.</strong> In the code editor, click on the dropdown above the preview pane and select <strong>Medium Hub</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ui/dropdown-viewport-selector.png" alt="viewport selector" width="255" height="203">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>2.8.</strong> In the code editor, go to <strong>line 142</strong> and insert the following <strong>JSON</strong> snippet.</p>
+</div>
+<div class="listingblock">
+<div class="title">Large hub image component</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+    "type": "Image",
+    "source": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
+    "width": "50vh",
+    "borderRadius": "50vh",
+    "height": "50vh",
+    "scale": "best-fit"
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_08-add-image-component-large.gif" alt="Paste Image Component">
+</div>
+<div class="title">Figure 15. Pasting medium hub image component</div>
+</div>
+<div class="paragraph">
+<p><strong>2.9.</strong> In the code editor, go to <strong>line 150</strong> and paste the following <strong>JSON</strong> snippet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">,{
+    "type": "ScrollView",
+    "paddingLeft": "5vw",
+    "width": "60vw",
+    "height": "60vh",
+    "item": {
+        "type": "Container",
+        "items": [
+            {
+                "type": "Text",
+                "text": "To make pizza sauce, mix together 1 can tomato sauce and 1 can tomato paste in a medium bowl until smooth. Stir in 1 tablespoon oregano, 1 1/2 teaspoons dried minced garlic, and 1 teaspoon paprika.",
+                "fontSize": "6vh",
+                "fontWeight": 300
+            }
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure to paste the snippet after the <code>}</code> on line 150. Otherwise the <strong>JSON</strong> will be malformed which will throw an error.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_09-add-text-component-large.gif" alt="Paste Text Component">
+</div>
+<div class="title">Figure 16. Pasting the medium hub text component</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_make_your_template_dynamic">Make Your Template Dynamic</h3>
+<div class="paragraph">
+<p>At this point we have an APL Document that includes an image component and a text component. It also supports small hub, medium hub, large hub and extra large TV viewports. Our APL Document&#8217;s data, however, is hardcoded so we still have some work to do. In this section we will add a datasource to our APL Document and use data-binding to enable it to handle showing recipes for all our sauces. Like a boss.</p>
+</div>
+<div class="sect3">
+<h4 id="_bind_data_to_your_template">Bind Data to Your Template</h4>
+<div class="paragraph">
+<p><strong>2.10.</strong> In the <a href="https://developer.amazon.com/alexa/console/ask/displays/" target="_blank" rel="noopener">APL authoring tool</a> go to <strong>line 65</strong> and paste the following <strong>JSON</strong> Snippet below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"parameters": [
+    "payload"
+],</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We just named our data binding object <strong>payload</strong>. You&#8217;ll see how this all comes together in step <strong>2.12.</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_10_add-data-source.gif" alt="add datasource">
+</div>
+<div class="title">Figure 17. Pasting the datasource</div>
+</div>
+<div class="paragraph">
+<p>The APL Document is updated to indicate it&#8217;s using a data source. We now need to add a the data.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.11.</strong> Click on <span class="image"><img src="images/ui/data-json.png" alt="Data JSON"></span> and past the following <strong>JSON</strong> snippet into the text editor.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">{
+    "sauceBossData": {
+        "type": "object",
+        "properties": {
+            "selectedSauceText": "&lt;speak&gt;To make pizza sauce, mix together 1 can tomato sauce and 1 can tomato paste in a medium bowl until smooth. Stir in 1 tablespoon oregano, 1 1/2 teaspoons dried minced garlic, and 1 teaspoon paprika.&lt;/speak&gt;",
+            "selectedSauce": "pizza",
+            "selectSauceCaps": "PIZZA",
+            "selectedSauceImg": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
+            "hintString": "how do I make pesto?"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_11_add-data.gif" alt="add data JSON">
+</div>
+<div class="title">Figure 18. Inserting the Data</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_use_a_binding_path_to_access_the_data_from_your_template">Use a Binding Path to Access the Data from Your Template.</h4>
+<div class="paragraph">
+<p>Now that we have completed databinding our APL Document to a datasource, we will use <strong>binding paths</strong> to access the data. A <strong>binding path</strong> is based on our data&#8217;s structure. For example, to access the sauce image, we would access it with:</p>
+</div>
+<div class="paragraph">
+<p><code>sauceBossData.properties.selectedSauceImg</code></p>
+</div>
+<div class="paragraph">
+<p>In our APL Document, we defined our data binding object to be called <strong>payload</strong> so in order to access the data from our Document, the <strong>binding path</strong> becomes:</p>
+</div>
+<div class="paragraph">
+<p><code>payload.sauceBossData.properties.selectedSauceImg</code></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s update our Document to use the <strong>binding path</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.12.</strong> In the APL authoring tool select <strong>Smart Hub</strong>, click on <span class="image"><img src="images/ui/start-from-scratch.png" alt="start from scratch"></span> and navigate to <strong>line 84</strong> and replace it with the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"source": "${payload.sauceBossData.properties.selectedSauceImg}",</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sauce image in now shown dynamically based on the customer&#8217;s selection.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_12_add-data.gif" alt="pasting the sauce image binding path">
+</div>
+<div class="title">Figure 19. Adding the small hub sauce image binding path</div>
+</div>
+<div class="paragraph">
+<p>The image  is now dynamic. We&#8217;ll use the same process to make the rest of our component&#8217;s data dynamic.</p>
+</div>
+<div class="paragraph">
+<p><strong>2.13.</strong> In the code editor go to <strong>line 101</strong> and paste the following <strong>JSON</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"headerTitle": "HOW TO MAKE ${payload.sauceBossData.properties.selectSauceCaps} SAUCE",</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_13_add-small-hub-header-text.gif" alt="pasting small hub header text">
+</div>
+<div class="title">Figure 20. Binding the small hub header text binding path</div>
+</div>
+<div class="paragraph">
+<p><strong>2.14.</strong> In the code editor go to <strong>line 127</strong> and paste the following <strong>JSON</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"text": "${payload.sauceBossData.properties.selectedSauceText}",</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_14_add-small-hub-sauce-text.gif" alt="add small hub sauce text">
+</div>
+<div class="title">Figure 21. Binding the small hub sauce text</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At this point the Document is only using data binding for the small hub. In the next two steps, we&#8217;ll update the components that display on the <strong>medium</strong>, <strong>large</strong>, and <strong>extra large TV</strong> viewports. Like a boss.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>2.15.</strong> Select <strong>Medium Hub</strong> and in the code editor go to <strong>line 148</strong> and replace the hardcoded value with the following <strong>JSON</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"source": "${payload.sauceBossData.properties.selectedSauceImg}",</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_15_add-medium-hub-sauce-image.gif" alt="add medium hub sauce image">
+</div>
+<div class="title">Figure 22. Binding the medium hub sauce image</div>
+</div>
+<div class="paragraph">
+<p><strong>2.16.</strong> In the code editor, go to <strong>line 164</strong> and replace the hardcoded value with the <strong>JSON</strong> below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"text": "${payload.sauceBossData.properties.selectedSauceText}",</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a2-e02_16_add-medium-hub-sauce-text.gif" alt="add medium hub sauce text">
+</div>
+<div class="title">Figure 23. Binding the medium hub sauce text</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion_3">Conclusion</h3>
+<div class="paragraph">
+<p>In this activity you:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Defined an APL Document</p>
+</li>
+<li>
+<p>Added an Image Component</p>
+</li>
+<li>
+<p>Added a Text Component</p>
+</li>
+<li>
+<p>Followed best practices for various viewports</p>
+</li>
+<li>
+<p>Used data binding to make it dyamic</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Like a boss!</strong> <span class="image"><img src="images/skill-icon.png" alt="The Sauce Boss"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activity_part_iii">Activity: Part III</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let&#8217;s make our experience better for customers. We&#8217;ll start by adding hints. Hints are a great way to clue your customers in on how to interact with your skill. Hints must include the entire spoken phrase with the wake word, the invocation name and the utterance. With APL you could manually add a hint string to your APL Document, however, the customer has the ability to set the wake word to either <strong>Alexa</strong>, <strong>Amazon</strong>, <strong>Echo</strong>, or <strong>Computer</strong>, so if you were to hardcode it to <strong>Alexa</strong>, and the customer had set their wake word to <strong>Amazon</strong> then your hint string will appear incorrectly.</p>
+</div>
+<div class="paragraph">
+<p>To ensure that our hint includes the right wake word we will use the <strong>textToHint transformer</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sauce-boss-hint-string.png" alt="Sauce Boss Hint String" width="390" height="267">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transformers">Transformers</h3>
+<div class="paragraph">
+<p>Transformers transform data in a data source into alternative representations. Given a property in the data source, it performs the tranformation and writes the data back to the property. In this activity, we will be using the <strong>textToHint</strong> transformer to add a hint.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For this part of the activity, we will be updating our <strong>LaunchRequest</strong>'s APL Document.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>3.1.</strong> In the APL Authoring Tool go to your <strong>LaunchRequest</strong> document and click on <span class="image"><img src="images/ui/data-json.png" alt="Data JSON"></span> and on <strong>line 10</strong> paste the following after the <code>}</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">textToHint Transformer</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">,
+"transformers": [
+    {
+        "inputPath": "hintString",
+        "transformer": "textToHint"
+    }
+]</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a3-e03_01_add-textToHint-transformer.gif" alt="add textToHint transformer">
+</div>
+<div class="title">Figure 24. Adding the textToHint transformer to the data object</div>
+</div>
+<div class="paragraph">
+<p>By adding the <strong>textToHint transformer</strong> to our data object, our skill will now transform the <code>inputPath</code> into a hint that will display in the footer when our skill launches. Next we will need to define our <code>hintString</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>3.2.</strong> In the code editor go to <strong>line 9</strong> and paste the following code below it. Be sure to add a comma <code>,</code> to the end of <strong>line 9</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">hintString (This goes in the properties of our data source.)</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"hintString": "how do I make pesto?"</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a3-e03_02_add-hintString-property.gif" alt="add hintString property">
+</div>
+<div class="title">Figure 25. Adding the hintString property</div>
+</div>
+<div class="paragraph">
+<p>Now that we&#8217;ve added the <code>hintString</code> property, we have to update our <strong>LaunchRequest</strong> template&#8217;s footer to use it.</p>
+</div>
+<div class="paragraph">
+<p><strong>3.3.</strong> In the code editor click on <span class="image"><img src="images/ui/start-from-scratch.png" alt="start from scratch"></span> go to <strong>line 303</strong> and replace it with the following <strong>JSON</strong> snippet.</p>
+</div>
+<div class="listingblock">
+<div class="title">footerHint data-binding</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"footerHint": "${payload.sauceBossData.properties.hintString}"</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a3-e03_03_add-data-bind-hintString.gif" alt="data binding the hintString">
+</div>
+<div class="title">Figure 26. Data binding the hintString</div>
+</div>
+<div class="paragraph">
+<p>At this point your template is ready to test on device! It wont work in the simulator so be sure to copy and paste the <strong>LaunchRequest</strong> template and the data into your skill code files and deploy it.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To test this you&#8217;ll need to use a device or the simulator.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <strong>textToHint</strong> transformer is automatically figuring out the wake word and appending it to our hint. If you have a device, try changing the wake word and opening your skill to see it in action.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_speech_synchronization">Speech Synchronization</h3>
+<div class="paragraph">
+<p>Let&#8217;s further enhance our experience for our customers. When our skill reads the sauce recipe aloud, some of our customers may wish to read along. To make that easier on their eyes we can use <strong>Speech Synchronization</strong> to have the text that alexa is currently speaking light up similar to a Karaoke machine. Bonus points for those of you who can sing <strong>"I&#8217;m On a Boat"</strong>. <strong>Like a boss.</strong></p>
+</div>
+<div class="paragraph">
+<p>To do that we will be using two transformers and a command.</p>
+</div>
+<div class="sect3">
+<h4 id="_transformers_2">Transformers</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ssmlToSpeech</strong> - converts plain text or Speech Synthesis Markup Language (SSML) into speech appropriate for binding with the speech propery of an APL component.</p>
+</li>
+<li>
+<p><strong>ssmlToText</strong> - converts SSML to plain text.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_command">Command</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>SpeakItem</strong> - reads the contents of a single item on the screen.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong>ssmlToSpeech</strong> and <strong>ssmlToText</strong> transformers will help us prepare our sauce recipe text to work with with the <strong>SpeakItem</strong> command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In this execersize we will be focusing on the <strong>RecipeIntent</strong> APL Document.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/storyboard-recipe.png" alt="storyboard recipe">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>3.4.</strong> Go to the APL Authoring Tool and open your <strong>RecipeIntent</strong> APL Document and data in the code editor.</p>
+</div>
+<div class="paragraph">
+<p>Now that we&#8217;ve got our APL Document set up in the authoring tool. We&#8217;re going to add the <strong>ssmlToSpeech</strong> and <strong>ssmlToText</strong> transformers to our template and data object.</p>
+</div>
+<div class="paragraph">
+<p><strong>3.5.</strong> Click on <span class="image"><img src="images/ui/data-json.png" alt="Data JSON"></span> go to <strong>line 9</strong> and paste the following <strong>JSON</strong> snippet.</p>
+</div>
+<div class="listingblock">
+<div class="title">Speech Synchronization Transformers</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">,
+"transformers": [
+    {
+        "inputPath": "selectedSauceSsml",
+        "outputName": "selectedSauceSpeech",
+        "transformer": "ssmlToSpeech"
+    },
+    {
+        "inputPath": "selectedSauceSsml",
+        "outputName": "selectedSauceText",
+        "transformer": "ssmlToText"
+    }
+]</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a3-e03_05_add-smlToSpeech-ssmlToText-transformers.gif" alt="add ssmlToSpeech and ssmlToText transformers">
+</div>
+<div class="title">Figure 27. Adding ssmlToSpeech and ssmlToText transformers</div>
+</div>
+<div class="paragraph">
+<p>Now that transformers have been added to the <strong>JSON</strong> data, we now need to update our APL Document so it uses the transformed version of our <strong>selectedSauceText</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>3.6.</strong> In the APL Authoring Tool, click on <span class="image"><img src="images/ui/start-from-scratch.png" alt="start from scratch"></span>, go to <strong>line 164</strong> and paste the following <strong>JSON</strong> snippet on the line below.</p>
+</div>
+<div class="listingblock">
+<div class="title">Data-binding</div>
+<div class="content">
+<pre class="highlight"><code class="language-JSON" data-lang="JSON">"speech": "${payload.sauceBossData.properties.selectedSauceSpeech}",</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a3-e03_06_add-data-binding-the-speech-property.gif" alt="data binding the speech property">
+</div>
+<div class="title">Figure 28. Adding the data binding for the speech property</div>
+</div>
+<div class="paragraph">
+<p>Now that we&#8217;ve updated or APL Document, we have one last task to perform in order to get our skill to use Speech Synchronization. In the next step, we&#8217;ll add the command to our skill code so our skill will speak the transformed <strong>selectedSauceText</strong>. We will do this in two steps. First we&#8217;ll add a token to our <strong>Alexa.Presentation.APL.RenderDocument</strong> directive and we&#8217;ll add the <strong>Alexa.Presentation.APL.ExecuteCommands</strong> directive to our skill&#8217;s response.</p>
+</div>
+<div class="paragraph">
+<p><strong>3.7.</strong> Go to your <strong>index.js</strong> skill code file and look for the comment <code>// TODO Activity 3.7 - uncomment the token below</code> and remove the comment.</p>
+</div>
+<div class="paragraph">
+<p>After uncommenting the token and removing the <code>TODO</code> your code should look like:</p>
+</div>
+<div class="listingblock">
+<div class="title">Code after uncommenting the <strong>token</strong> and removing the <strong>TODO</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">.addDirective({
+    type: 'Alexa.Presentation.APL.RenderDocument',
+    token: 'sauceboss',
+    document: require('./templates/recipeintent.json'),
+    datasources: constructRecipeDataSource(itemName, recipe)
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>3.8.</strong> In your <strong>index.js</strong> file look for the comment <code>// TODO Activity 3.8 - uncomment the token below</code> and uncomment line containing the token.</p>
+</div>
+<div class="paragraph">
+<p>Upon removing the content and <strong>TODO</strong> your code should appear as it does below:</p>
+</div>
+<div class="listingblock">
+<div class="title">Alexa.Presentation.APL.ExecuteCommands Directive after uncommenting the token.</div>
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">.addDirective({
+    type: 'Alexa.Presentation.APL.ExecuteCommands',
+    token: 'sauceboss',
+    commands: [{
+        type: 'SpeakItem',
+        componentId: 'recipeText',
+        highlightMode: 'line'
+    }]
+})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>At this point your skill is ready to test! Copy your changes to your <strong>APL Document</strong> and <strong>data</strong> to the your skill and deploy it to test it in the simulator.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Your speech synchronization won&#8217;t work in the APL Authoring Tool. You&#8217;ll need to test either on a device or in the simulator.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The token that we added to the <strong>Alexa.Presentation.APL.RenderDocument</strong> and <strong>Alexa.Presentation.APL.ExecuteCommands</strong> directives must be the same.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>🏆Congratulations🏆! At this point you&#8217;ve finished activity 3.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion_4">Conclusion</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added a <strong>textToHint</strong> Transformer</p>
+</li>
+<li>
+<p>Provided a data binding for the <strong>hintString</strong></p>
+</li>
+<li>
+<p>Added a <strong>ssmlToSpeech</strong> Transformer</p>
+</li>
+<li>
+<p>Added a <strong>ssmlToText</strong> Transformer</p>
+</li>
+<li>
+<p>Added an identifying <strong>Token</strong></p>
+</li>
+<li>
+<p>Added the <strong>Alexa.Presentation.APL.ExecuteCommands</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Like a boss!</strong> <span class="image"><img src="images/skill-icon.png" alt="Sauch Boss"></span></p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activity_part_iv">Activity: Part IV</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_touch_events">Touch Events</h3>
+<div class="paragraph">
+<p>Now lets add touch events. While not always necessary since the experience is primarily voice first, touch events allow hybrid interactions between the customer and Alexa.</p>
+</div>
+<div class="olist upperalpha">
+<ol class="upperalpha">
+<li>
+<p>For this bit, we are going to update our Launch Request screen to accept touch input. We are already sending a dynamic databound argument so let&#8217;s add a dynamic touch wrapper to it.
+we&#8217;re going to allow customers to access a Help Screen that will be a vertical list. We&#8217;ll also make each item on this help screen touchable.</p>
+</li>
+<li>
+<p>For extra credit - you can also add a new help screen that uses a sequence with touch wrappers.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>4.1.</strong> Add TouchWrapper to Rectangular Devices</p>
+</div>
+<div class="paragraph">
+<div class="title">Identify existing layout object</div>
+<p>First, recall that our sauces on the Launch Screen all are using a custom layout called "SauceListItem", which will display the image and text for the sauce. Identify that in the launchrequest.json (let&#8217;s first start with the non-Echo Spot devices):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge || @viewportProfile == @tvLandscapeXLarge}",
+"type": "Container",
+"direction": "column",
+"width": "25vw",
+"height": "30vh",
+"alignItems": "center",
+"items": [{
+        "type": "Image",
+        "source": "${imgSrc}",
+        "width": "22vh",
+        "borderRadius": "22vh",
+        "height": "22vh",
+        "scale": "best-fill"
+    },
+    {
+        "type": "Text",
+        "text": "${sauce}",
+        "width": "25vw",
+        "height": "8vh",
+        "paddingTop": "2vh",
+        "fontSize": "2.5vw",
+        "fontWeight": "100",
+        "textAlign": "center"
+    }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We need to add a TouchWrapper (<a href="https://developer.amazon.com/docs/alexa-presentation-language/apl-touchwrapper.html" class="bare">https://developer.amazon.com/docs/alexa-presentation-language/apl-touchwrapper.html</a>) to support touch/press. We need to wrap the container above with a Touch Wrapper.</p>
+</div>
+<div class="listingblock">
+<div class="title">Adding a TouchWrapper and setting the Container as a child item</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge || @viewportProfile == @tvLandscapeXLarge}",
+"type": "TouchWrapper",
+"id": "touch-${sauce}",
+"item": {
+    "type": "Container",
+    "direction": "column",
+    "width": "25vw",
+    "height": "30vh",
+    "alignItems": "center",
+    "items": [
+        {
+            "type": "Image",
+            "source": "${imgSrc}",
+            "width": "22vh",
+            "borderRadius": "22vh",
+            "height": "22vh",
+            "scale": "best-fill"
+        },
+        {
+            "type": "Text",
+            "text": "${sauce}",
+            "width": "25vw",
+            "height": "8vh",
+            "paddingTop": "2vh",
+            "fontSize": "2.5vw",
+            "fontWeight": "100",
+            "textAlign": "center"
+        }
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that we added a component id as well using the databinding for teh current sauce. Now we need to set the onPress property onto the TouchWrapper:</p>
+</div>
+<div class="paragraph">
+<p><strong>4.2.</strong> Add onPress property to determine what data to send back</p>
+</div>
+<div class="listingblock">
+<div class="title">Add onPress property to the TouchWrapper component</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"onPress": {
+    "type": "SendEvent",
+    "arguments": [
+        "${sauce}"
+    ]
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>4.3.</strong> Let&#8217;s test this in the authoring tool. Make sure you save your launchrequest.json and click Deploy. Now go to the Test Tab, open the skill and try cliking on one of the sauces. It should show that there was a User Event but the command was not recognized. This is expected! Let&#8217;s look at our skill logs to see what kind of event was set.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a4-4.3-touchEvent-noHandler.gif" alt="Testing the skill">
+</div>
+<div class="title">Figure 29. Testing the skill without an Event Handler set</div>
+</div>
+<div class="paragraph">
+<p><strong>4.4.</strong> Go back to the code tab, and then click on CloudWatch logs. Check your latest log and the most recent REQUEST object. Open it and scroll down to the request object. It should look something like the below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a4-4.4-checkLogs.gif" alt="Checking CloudWatch">
+</div>
+<div class="title">Figure 30. Checking CloudWatch logs</div>
+</div>
+<div class="listingblock">
+<div class="title">Format of Touch Request object</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"request": {
+	"type": "Alexa.Presentation.APL.UserEvent",
+	"requestId": "amzn1.echo-api.request.2908225d-4e7c-4329-9ae9-26bab066e5c1",
+	"timestamp": "2018-11-16T21:22:31Z",
+	"locale": "en-US",
+	"arguments": ["Pesto"],
+	"components": {},
+	"source": {},
+	"token": ""
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>4.5.</strong> Now that we know what the touch request looks like, we need to update our index.js to be able to handle this. In this case we want the response for touching a specific sauce to be the same as saying it by voice. We can use the RecipeHandler to also check if we have a touch event and reuse the same logic. Go back to the Code tab and open index.js.</p>
+</div>
+<div class="paragraph">
+<p><strong>4.6.</strong> Search the code for your first TODO: "TODO Activity 4: accept Touch Event (Alexa.Presentation.APL.UserEvent)". Update this section to add an OR conditional to also check for a touch event, which is a request.type of "Alexa.Presentation.APL.UserEvent".</p>
+</div>
+<div class="paragraph">
+<p>Now, when a touch event is sent, it should go to the RecipeHandler function.</p>
+</div>
+<div class="paragraph">
+<p><strong>4.7.</strong> Now we need to add logic to take the sauce name that was clicked and pass that on to our logic. Look for the second Activity 4 TODO: "TODO Activity 4: Support logic for Touch Request". Update the if statement to check if the input was from a touch request and populate the value of itemName from the request arguments passed in. See request structure above if you are stuck help.</p>
+</div>
+<div class="paragraph">
+<p>(Also remember that arguments is an array, and you need the first value of the array).</p>
+</div>
+<div class="paragraph">
+<p><strong>4.8.</strong> Save, then deploy your index.js and try out the skill in the test tab! If all goes well you should be able to click on your desired recipe and then it should load on the simulator with audio and karaoke playing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/a4-4.7-finishedProduct.gif" alt="Testing the skill">
+</div>
+<div class="title">Figure 31. Finished Product</div>
+</div>
+<div class="paragraph">
+<p>🏆Congratulations🏆! At this point you&#8217;ve finished activity 4.</p>
+</div>
+<div class="paragraph">
+<p><strong>4.9.</strong> Don&#8217;t forget about the Echo Spot device! Go back to the launchrequest.json and find the other "when" conditional for the hubRoundSmall - add a TouchWrapper to this just like you did previously for the other screen sizes:</p>
+</div>
+<div class="listingblock">
+<div class="title">Add the TouchWrapper for the hubRoundSmall viewportProfile</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">"when": "${@viewportProfile == @hubRoundSmall}",
+"type": "Container",
+"direction": "column",
+"width": "50vw",
+"height": "70vh",
+"alignItems": "center",
+"items": [{
+        "type": "Image",
+        "source": "${imgSrc}",
+        "width": "50vh",
+        "height": "50vh",
+        "borderRadius": "5vh",
+        "scale": "best-fill"
+    },
+    {
+        "type": "Text",
+        "text": "${ordinal}. ${sauce}",
+        "width": "50vw",
+        "height": "20vh",
+        "paddingTop": "3vh",
+        "fontSize": "5vw",
+        "fontWeight": 100,
+        "textAlign": "center"
+    }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save, Deploy, and retest!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conclusion_5">Conclusion</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Added a TouchWrapper and onPress property for the sauce components on the Launch Request String</p>
+</li>
+<li>
+<p>Tested the touch component on the simulator and checked the CloudWatch logs to see the event request structure</p>
+</li>
+<li>
+<p>Updated RecipeHandler method within index.js to also accept Touch events and respond with the appropriate recipe</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_bonus">BONUS</h3>
+<div class="paragraph">
+<p><strong>4.9.</strong> Still want to do some more APL? Try creating your own Help screen template? The interaction model and handler have already been set. Feel free to talk to session support for more details!</p>
+</div>
+<div class="paragraph">
+<p><strong>Like a boss!</strong> <span class="image"><img src="images/skill-icon.png" alt="Sauch Boss"></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-11-19 09:30:10 -0800
+</div>
+</div>
+</body>
+</html>

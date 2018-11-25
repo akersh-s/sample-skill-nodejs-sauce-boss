@@ -1,0 +1,119 @@
+{
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+        {
+            "name": "alexa-viewport-profiles",
+            "version": "1.0.0"
+        },
+        {
+            "name": "alexa-layouts",
+            "version": "1.0.0"
+        },
+        {
+            "name": "alexa-styles",
+            "version": "1.0.0"
+        }
+    ],
+    "resources": [
+        {
+            "description": "Sauce boss background image assets",
+            "when": "${@viewportProfile == @hubRoundSmall}",
+            "strings": {
+                "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-smHub.png",
+                "backgroundLeft": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-left-smHub.png",
+                "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-smHub.png",
+                "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-smHub.png"
+            }
+        },
+        {
+            "description": "Sauce boss background image assets",
+            "when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge}",
+            "strings": {
+                "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-Hub.png",
+                "backgroundLeft": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-left-Hub.png",
+                "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-Hub.png",
+                "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-Hub.png"
+            }
+        },
+        {
+            "description": "Sauce boss background image assets",
+            "when": "${@viewportProfile == @tvLandscapeXLarge}",
+            "strings": {
+                "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-TV.png",
+                "backgroundLeft": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-left-TV.png",
+                "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-TV.png",
+                "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-TV.png"
+            }
+        },
+        {
+            "description": "Sauce boss image assets",
+            "strings": {
+                "bbq": "https://s3.amazonaws.com/sauceboss/bbq-sauce-500x500.png",
+                "cranberry": "https://s3.amazonaws.com/sauceboss/cranberry-sauce-500x500.png",
+                "honeyMustard": "https://s3.amazonaws.com/sauceboss/honey-mustard-sauce-500x500.png",
+                "pesto": "https://s3.amazonaws.com/sauceboss/pesto-sauce-500x500.png",
+                "pizza": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
+                "secretSauce": "https://s3.amazonaws.com/sauceboss/secret-sauce-500x500.png",
+                "tartar": "https://s3.amazonaws.com/sauceboss/tartar-sauce-500x500.png",
+                "thousandIsland": "https://s3.amazonaws.com/sauceboss/thousand-island-sauce-500x500.png",
+                "skillIcon": "https://s3.amazonaws.com/sauceboss/skill-icon.png"
+            }
+        }
+    ],
+    "styles": {
+        "hintListItem": {
+            "values": [
+                {
+                    "when": "${@viewportProfile == @hubRoundSmall}",
+                    "fontSize": "11vw",
+                    "fontFamily": "Bookerly",
+                    "fontStyle": "italic",
+                    "fontWeight": "200",
+                    "textAlign": "center",
+                    "color": "#FFFFFF"
+                },
+                {
+                    "when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge || @viewportProfile == @tvLandscapeXLarge}",
+                    "fontSize": "4vw",
+                    "fontFamily": "Bookerly",
+                    "fontStyle": "italic",
+                    "fontWeight": "200",
+                    "color": "#FFFFFF"
+                }
+            ]
+        }
+    },
+    "mainTemplate": {
+        "items": [
+            {
+                "type": "Container",
+                "direction": "column",
+                "items": [
+                    {
+                        "type": "Image",
+                        "source": "@backgroundBottom",
+                        "scale": "best-fill",
+                        "width": "100vw",
+                        "height": "100vh"
+                    },
+                    {
+                        "type": "Container",
+                        "position": "absolute",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "direction": "column",
+                        "items": [
+                            {
+                                "type": "AlexaHeader",
+                                "headerTitle": "HELP",
+                                "headerAttributionImage": "@skillIcon"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
