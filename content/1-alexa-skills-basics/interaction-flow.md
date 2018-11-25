@@ -1,5 +1,5 @@
 ---
-title: The flow of interaction
+title: Alexa Skills Architecture
 weight: 10
 ---
 
