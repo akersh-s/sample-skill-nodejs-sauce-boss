@@ -15,8 +15,7 @@ View.
 **Before:** ![Layout View](/images/ui/toggle-layout-view.png) **After:**
 ![Code View](/images/ui/toggle-code-view.png)
 
-**2.4.** Paste the [starter
-template](https://console.aws.amazon.com/codesuite/codecommit/repositories/reinvent2018-sauce-boss/browse/refs/heads/master/--/lambda/custom/workshop/a2-e02_04.json)
+**2.4.** Paste the [starter template](https://github.com/akersh-s/sample-skill-nodejs-sauce-boss/blob/master/workshop/a2/activity2-recipeintent-before.json)
 into the code editor.
 
 ![Steps 2.1 to 2.4](/images/a2-e02_01-05.gif)
