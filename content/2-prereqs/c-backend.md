@@ -14,12 +14,12 @@ hosted skills allows us to edit, configure, and change the back-end of
 our code without leaving the developer portal.
 
 **13.** Select **index.js** on the left-hand navigation. Copy
-[the code from this link](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/workshop/index.js) and Paste it into the **index.js** file in the Developer
+[the code from this link](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/index.js) and Paste it into the **index.js** file in the Developer
 Portal window.
 
 ![Updating the **index.js** file](/images/a0-e11_12_create-index.js.gif)
 
-**14.** Click on the **package.json** file. Copy the following JSON, paste it into **package.json** replacing the existing contents and click Save.
+**14.** Click on the **package.json** file. Copy the following JSON, and replace the existing contents of the file by Pasting. Click Save.
 
 **package.json.**
 
@@ -49,4 +49,4 @@ Portal window.
 **15.** Click the **Deploy** button.
 
 Doing so will deploy your skill’s backend. Once it’s finished deploying,
-you’ll be able to test your skill.
+you’ll be able to test your skill!

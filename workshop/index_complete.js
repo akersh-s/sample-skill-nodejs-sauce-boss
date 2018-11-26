@@ -73,7 +73,7 @@ const LaunchRequestHandler = {
       .addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         version: '1.0',
-        document: require('./documents/launchrequest.json'),
+        document: require('./templates/launchrequest.json'),
         datasources: {
           "sauceBossData": {
             "type": "object",
@@ -98,9 +98,9 @@ const RecipeHandler = {
   canHandle(handlerInput) {
     return ((handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
         handlerInput.requestEnvelope.request.intent.name === 'RecipeIntent') 
-        //TODO Activity 4: Also accept Touch Event (Alexa.Presentation.APL.UserEvent)
-        );
-    
+        ||
+      (handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent'));
+    // && handlerInput.requestEnvelope.request.source.handler === 'Press'));
   },
   handle(handlerInput) {
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -108,10 +108,9 @@ const RecipeHandler = {
 
     let itemName;
 
-    //TODO Activity 4: Support logic for Touch Request -  
-    // Update IF conditional and set item name to the argument received in the requestEnvelope
-    if (false) {
-      //itemName = ADD_ME_HERE!
+    //Touch Event Request
+    if (handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent') {
+      itemName = (handlerInput.requestEnvelope.request.arguments[0]).toLowerCase();
     } else {
       //Voice Intent Request
       const itemSlot = handlerInput.requestEnvelope.request.intent.slots.Item;
@@ -119,7 +118,6 @@ const RecipeHandler = {
         itemName = itemSlot.value.toLowerCase();
       }
     }
-
     //special cleanup for bbq sauce 
     itemName = itemName.replace("bbq", "barbecue").replace(" sauce", "");
 
@@ -132,14 +130,12 @@ const RecipeHandler = {
 
     if (recipe) {
       sessionAttributes.speakOutput = recipe;
+      //sessionAttributes.repromptSpeech = requestAttributes.t('RECIPE_REPEAT_MESSAGE');
       handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
       let response = handlerInput.responseBuilder
-        //TODO - Activity 2 - remove the String content inside the .speak() command
-        .speak("You will build out the recipe response in activity 2!")
+        .speak("")
         .withSimpleCard(cardTitle, recipe)
-        //TODO - Activity 2 - uncomment the below lines
-        /*
         .addDirective({
           type: 'Alexa.Presentation.APL.RenderDocument',
           token: 'sauceboss',
@@ -156,7 +152,6 @@ const RecipeHandler = {
             highlightMode: 'line'
           }]
         })
-        */
         .getResponse();
 
       return response;
@@ -200,10 +195,31 @@ const HelpHandler = {
     let response = handlerInput.responseBuilder
       .speak(sessionAttributes.speakOutput)
       .reprompt(sessionAttributes.repromptSpeech)
-      //TODO Extra Credit - add help screen
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        datasources: recipes,
+        document: require('./templates/helpintent.json')
+      })
       .getResponse();
 
     return response;
+  },
+};
+
+const TouchEventHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent' &&
+      handlerInput.requestEnvelope.request.source.handler === 'Press';
+  },
+  handle(handlerInput) {
+    let sauce = handlerInput.requestEnvelope.request.arguments[0];
+
+
+    return handlerInput.responseBuilder
+      .speak(sessionAttributes.speakOutput)
+      .reprompt(sessionAttributes.repromptSpeech)
+      .getResponse();
   },
 };
 
