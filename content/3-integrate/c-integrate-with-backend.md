@@ -50,7 +50,7 @@ Uncomment directive that has the same basic elements as the following code snipp
       .reprompt(repromptOutput)
       .addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
-        document: require('./templates/launchrequest.json'),
+        document: require('./documents/launchrequest.json'),
         datasources: {
           "sauceBossData": {
             "type": "object",
