@@ -8,7 +8,7 @@ weight: 2
 **1.1** Open the code tab in the **Amazon Developer Portal**.
 
 **1.2.** Click the new folder button to create a new folder called
-**documents** inside the **lambda/custom** directory.
+**documents** inside the **lambda** directory.
 
 > **Note**
 > 
@@ -17,8 +17,8 @@ weight: 2
 > separate them from your coding logic.
 
 **1.3.** Create a new file called **launchrequest.json** in your newly
-created **documents** folder. We’ll come back to fill this out later
-with the resulting document from the APL Authoring Tool.
+created **documents** folder. It'll remain empty for now. We’ll 
+populate once we have a complete APL document from later in this exercise.
 
 **1.4.** In a new browser tab, open the **APL Authoring Tool**. You can
 do so by selecting the option for **Display** on the left hand
