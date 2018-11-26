@@ -19,7 +19,7 @@ In our APL Document, we defined our data binding object to be called
 
 Let’s update our Document to use the **binding path**.
 
-**2.12.** In the APL Authoring Tool select **Smart Hub**, click on
+**2.12.** In the APL Authoring Tool select **Small Hub**, click on
 ![start from scratch](/images/ui/start-from-scratch.png) and navigate to
 **line 84** and replace it with the following:
 
