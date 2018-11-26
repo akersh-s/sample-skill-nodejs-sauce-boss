@@ -16,8 +16,8 @@ created earlier and paste the document from the **APL Authoring Tool**
 into this file.
 
 **1.16** Now open `index.js` and find the `lauchRequestHandler`. Find
-the `responsebuilder` API. It should be starting around `line 73`. 
-Uncomment the following directive that should look something like the following code snippet.
+the `responsebuilder` API. It should be around `line 73`. 
+Uncomment directive that has the same basic elements as the following code snippet.
 
 **Add the APL directive.**
 
