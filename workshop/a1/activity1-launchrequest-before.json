@@ -19,16 +19,6 @@
     "resources": [
         {
             "description": "Sauce boss background image assets",
-            "when": "${@viewportProfile == @hubRoundSmall}",
-            "strings": {
-                "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-smHub.png",
-                "backgroundLeft": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-left-smHub.png",
-                "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-smHub.png",
-                "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-smHub.png"
-            }
-        },
-        {
-            "description": "Sauce boss background image assets",
             "when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge}",
             "strings": {
                 "backgroundBottom": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-bottom-Hub.png",
