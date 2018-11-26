@@ -50,7 +50,7 @@
         {
             "description": "Sauce boss image assets",
             "strings": {
-                "bbq": "https://s3.amazonaws.com/sauceboss/bbq-sauce-500x500.png",
+                "bbq": "https://s3.amazonaws.com/sauceboss/barbecue-sauce-500x500.png",
                 "cranberry": "https://s3.amazonaws.com/sauceboss/cranberry-sauce-500x500.png",
                 "honeyMustard": "https://s3.amazonaws.com/sauceboss/honey-mustard-sauce-500x500.png",
                 "pesto": "https://s3.amazonaws.com/sauceboss/pesto-sauce-500x500.png",

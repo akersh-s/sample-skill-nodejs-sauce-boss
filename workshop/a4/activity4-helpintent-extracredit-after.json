@@ -50,14 +50,14 @@
         {
             "description": "Sauce boss image assets",
             "strings": {
-                "bbq": "https://s3.amazonaws.com/sauceboss/bbq-sauce-500x500.png",
+                "bbq": "https://s3.amazonaws.com/sauceboss/barbecue-sauce-500x500.png",
                 "cranberry": "https://s3.amazonaws.com/sauceboss/cranberry-sauce-500x500.png",
-                "honeyMustard": "https://s3.amazonaws.com/sauceboss/honey-mustard-sauce-500x500.png",
+                "honeyMustard": "https://s3.amazonaws.com/sauceboss/honey mustard-sauce-500x500.png",
                 "pesto": "https://s3.amazonaws.com/sauceboss/pesto-sauce-500x500.png",
                 "pizza": "https://s3.amazonaws.com/sauceboss/pizza-sauce-500x500.png",
                 "secretSauce": "https://s3.amazonaws.com/sauceboss/secret-sauce-500x500.png",
                 "tartar": "https://s3.amazonaws.com/sauceboss/tartar-sauce-500x500.png",
-                "thousandIsland": "https://s3.amazonaws.com/sauceboss/thousand-island-sauce-500x500.png",
+                "thousandIsland": "https://s3.amazonaws.com/sauceboss/thousand island-sauce-500x500.png",
                 "skillIcon": "https://s3.amazonaws.com/sauceboss/skill-icon.png"
             }
         }
