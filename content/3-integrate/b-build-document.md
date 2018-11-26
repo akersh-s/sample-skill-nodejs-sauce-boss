@@ -22,8 +22,7 @@ with the resulting document from the APL Authoring Tool.
 
 **1.4.** In a new browser tab, open the **APL Authoring Tool**. You can
 do so by selecting the option for **Display** on the left hand
-navigation of the **Build** tab, or you can click this link:
-\[<https://developer.amazon.com/alexa/console/ask/displays>\]
+navigation of the **Build** tab, or you can click this [link](<https://developer.amazon.com/alexa/console/ask/displays>)
 
 **1.5** On the Authoring Tool. Select **Start from Scratch**.
 
