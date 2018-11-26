@@ -73,7 +73,7 @@ const LaunchRequestHandler = {
       .addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         version: '1.0',
-        document: require('./templates/launchrequest.json'),
+        document: require('./documents/launchrequest.json'),
         datasources: {
           "sauceBossData": {
             "type": "object",
@@ -135,8 +135,11 @@ const RecipeHandler = {
       handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
       let response = handlerInput.responseBuilder
-        .speak("")
+        //TODO - Activity 2 - remove the String content inside the .speak() command
+        .speak("You will build out the recipe response in activity 2!")
         .withSimpleCard(cardTitle, recipe)
+        //TODO - Activity 2 - uncomment the below lines
+        /*
         .addDirective({
           type: 'Alexa.Presentation.APL.RenderDocument',
           token: 'sauceboss',
@@ -153,6 +156,7 @@ const RecipeHandler = {
             highlightMode: 'line'
           }]
         })
+        */
         .getResponse();
 
       return response;
