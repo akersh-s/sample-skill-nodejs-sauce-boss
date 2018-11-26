@@ -19,7 +19,7 @@ devices):
 "type": "Container",
 "direction": "column",
 "width": "25vw",
-"height": "30vh",
+"height": "35vh",
 "alignItems": "center",
 "items": [{
         "type": "Image",
@@ -58,7 +58,7 @@ item.**
     "type": "Container",
     "direction": "column",
     "width": "25vw",
-    "height": "30vh",
+    "height": "35vh",
     "alignItems": "center",
     "items": [
         {
