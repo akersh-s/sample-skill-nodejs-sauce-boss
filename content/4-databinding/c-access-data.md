@@ -84,3 +84,14 @@ hardcoded value with the **JSON** below.
 
 ![Binding the medium hub sauce
 text](/images/a2-e02_16_add-medium-hub-sauce-text.gif)
+
+ Now that you've finished editing your **RecipeIntent**'s APL Document, it's time to save it in the
+ code editor.
+
+**2.17** In the code editor, create **documents/recipeintent.json**.
+
+**2.18** Go the **APL Authoring Tool** and copy your document.
+
+**2.19** Paste the code into your **documents/recipeintent.json** and save
+
+**2.20** Click deploy.

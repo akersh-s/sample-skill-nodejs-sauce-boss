@@ -3,6 +3,14 @@ pre: "a. "
 title: Build the document
 weight: 1
 ---
+
+> **Note**
+> 
+> For this part of the activity, we will be updating our
+> **RecipeIntent**'s APL Document.
+> Make sure that you have saved any changes you've made in the APL authoring
+tool](https://developer.amazon.com/alexa/console/ask/displays/) to your **launchrequst.json** 
+
 **2.1.** First start by opening up the [APL authoring
 tool](https://developer.amazon.com/alexa/console/ask/displays/).
 
