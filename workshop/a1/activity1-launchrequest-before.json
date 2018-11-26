@@ -98,7 +98,7 @@
                             "height": "20vh",
                             "paddingTop": "3vh",
                             "fontSize": "5vw",
-                            "fontWeight": 100,
+                            "fontWeight": "100",
                             "textAlign": "center"
                         }
                     ]
@@ -126,7 +126,7 @@
                             "height": "17vh",
                             "paddingTop": "2vh",
                             "fontSize": "2.5vw",
-                            "fontWeight": 100,
+                            "fontWeight": "100",
                             "textAlign": "center"
                         }
                     ]
