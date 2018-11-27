@@ -144,7 +144,7 @@ const RecipeHandler = {
           type: 'Alexa.Presentation.APL.RenderDocument',
           token: 'sauceboss',
           version: '1.0',
-          document: require('./templates/recipeintent.json'),
+          document: require('./documents/recipeintent.json'),
           datasources: constructRecipeDataSource(itemName, recipe)
         })
         .addDirective({

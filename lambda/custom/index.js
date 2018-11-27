@@ -70,23 +70,23 @@ const LaunchRequestHandler = {
     let response = handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(repromptOutput)
-//       .addDirective({
-//         type: 'Alexa.Presentation.APL.RenderDocument',
-//         document: require('./templates/launchrequest.json'),
-//         datasources: {
-//           "sauceBossData": {
-//             "type": "object",
-//             "properties": {
-//               "hintString": "How do I make barbecuesauce?"
-//             },
-//             "transformers": [{
-//               "inputPath": "hintString",
-//               "transformer": "textToHint"
-//             }]
-//           }
-//         }
+      // .addDirective({
+      //   type: 'Alexa.Presentation.APL.RenderDocument',
+      //   document: require('./documents/launchrequest.json'),
+      //   datasources: {
+      //     "sauceBossData": {
+      //       "type": "object",
+      //       "properties": {
+      //         "hintString": "How do I make barbecuesauce?"
+      //       },
+      //       "transformers": [{
+      //         "inputPath": "hintString",
+      //         "transformer": "textToHint"
+      //       }]
+      //     }
+      //   }
 
-//       })
+      // })
       .getResponse();
 
     return response;
@@ -140,7 +140,7 @@ const RecipeHandler = {
           type: 'Alexa.Presentation.APL.RenderDocument',
           // TODO Activity 3.7 - uncomment the token below
           // token: 'sauceboss',
-          document: require('./templates/recipeintent.json'),
+          document: require('./documents/recipeintent.json'),
           datasources: constructRecipeDataSource(itemName, recipe)
         })
         .addDirective({
