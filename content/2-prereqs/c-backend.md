@@ -14,7 +14,7 @@ hosted skills allows us to edit, configure, and change the back-end of
 our code without leaving the developer portal.
 
 **13.** Select **index.js** on the left-hand navigation. Copy
-[the code from this link](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/index.js) and Paste it into the **index.js** file in the Developer
+[the code from this link](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/workshop/index.js) and Paste it into the **index.js** file in the Developer
 Portal window.
 
 ![Updating the **index.js** file](/images/a0-e11_12_create-index.js.gif)
