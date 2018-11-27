@@ -73,7 +73,7 @@ const LaunchRequestHandler = {
       .addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         version: '1.0',
-        document: require('./templates/launchrequest.json'),
+        document: require('./documents/launchrequest.json'),
         datasources: {
           "sauceBossData": {
             "type": "object",
@@ -140,7 +140,7 @@ const RecipeHandler = {
           type: 'Alexa.Presentation.APL.RenderDocument',
           token: 'sauceboss',
           version: '1.0',
-          document: require('./templates/recipeintent.json'),
+          document: require('./documents/recipeintent.json'),
           datasources: constructRecipeDataSource(itemName, recipe)
         })
         .addDirective({
@@ -199,7 +199,7 @@ const HelpHandler = {
         type: 'Alexa.Presentation.APL.RenderDocument',
         version: '1.0',
         datasources: recipes,
-        document: require('./templates/helpintent.json')
+        document: require('./documents/helpintent.json')
       })
       .getResponse();
 
