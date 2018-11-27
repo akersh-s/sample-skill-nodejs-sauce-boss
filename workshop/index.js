@@ -70,24 +70,8 @@ const LaunchRequestHandler = {
     let response = handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(repromptOutput)
-      .addDirective({
-        type: 'Alexa.Presentation.APL.RenderDocument',
-        version: '1.0',
-        document: require('./documents/launchrequest.json'),
-        datasources: {
-          "sauceBossData": {
-            "type": "object",
-            "properties": {
-              "hintString": "How do I make barbecuesauce?"
-            },
-            "transformers": [{
-              "inputPath": "hintString",
-              "transformer": "textToHint"
-            }]
-          }
-        }
+      //TODO YOU WILL ADD CODE FROM ACTIVITY 1 HERE
 
-      })
       .getResponse();
 
     return response;
