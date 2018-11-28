@@ -34,7 +34,7 @@ Uncomment directive that has the same basic elements as the following code snipp
   - `type` is the Directive definition sent to the Alexa service.
 
   - `datasources` are the source from which data can be bound to the APL document. This can be
-    dynamic (i.e. populated from an API call).
+    dynamic (i.e. populated from an API call). We're going to leave this empty for now.
 
   - `document` is the location of APL Document itself.
 
