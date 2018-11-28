@@ -122,25 +122,27 @@ const RecipeHandler = {
         //TODO - Activity 2 - remove the String content inside the .speak() command
         .speak("You will build out the recipe response in activity 2!")
         .withSimpleCard(cardTitle, recipe)
-        //TODO - Activity 2 - uncomment the below lines
-        /*
-        .addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          token: 'sauceboss',
-          version: '1.0',
-          document: require('./documents/recipeintent.json'),
-          datasources: constructRecipeDataSource(itemName, recipe)
-        })
-        .addDirective({
-          type: 'Alexa.Presentation.APL.ExecuteCommands',
-          token: 'sauceboss',
-          commands: [{
-            type: 'SpeakItem',
-            componentId: 'recipeText',
-            highlightMode: 'line'
-          }]
-        })
-        */
+        //TODO - Activity 2 - uncomment the below lines        
+        // .addDirective({
+        //   type: 'Alexa.Presentation.APL.RenderDocument',
+        //   token: 'sauceboss',
+        //   version: '1.0',
+        //   document: require('./documents/recipeintent.json'), 
+        //   datasources: constructRecipeDataSource(itemName, recipe) //NOTE HERE THAT WE ARE DYNAMICALLY POPULATING THE DATASOURCE WITH ANOTHER METHOD
+        // })
+        
+        
+        //TODO - Activity 3 - Uncomment the lines below to use Commands and SpeakItem
+        // .addDirective({
+        //   type: 'Alexa.Presentation.APL.ExecuteCommands',
+        //   token: 'sauceboss',
+        //   commands: [{
+        //     type: 'SpeakItem',
+        //     componentId: 'recipeText',
+        //     highlightMode: 'line'
+        //   }]
+        // })
+        
         .getResponse();
 
       return response;
