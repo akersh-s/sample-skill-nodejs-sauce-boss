@@ -38,8 +38,8 @@ path](/images/a2-e02_12_add-data.gif)
 The image is now dynamic. We’ll use the same process to make the rest of
 our component’s data dynamic.
 
-**2.13.** In the code editor go to **line 101** and paste the following
-**JSON**.
+**2.13.** In the code editor go to **line 101** and replace it with the following
+**JSON**:
 
 ``` JSON
 "headerTitle": "HOW TO MAKE ${payload.sauceBossData.properties.selectSauceCaps} SAUCE",
@@ -48,8 +48,8 @@ our component’s data dynamic.
 ![Binding the small hub header text binding
 path](/images/a2-e02_13_add-small-hub-header-text.gif)
 
-**2.14.** In the code editor go to **line 127** and paste the following
-**JSON**.
+**2.14.** In the code editor go to **line 127** and replace it with the following
+**JSON**:
 
 ``` JSON
 "text": "${payload.sauceBossData.properties.selectedSauceText}",
@@ -66,7 +66,7 @@ text](/images/a2-e02_14_add-small-hub-sauce-text.gif)
 > boss.
 
 **2.15.** Select **Medium Hub** and in the code editor go to **line
-148** and replace the hardcoded value with the following **JSON**.
+148** and replace the hardcoded value with the following **JSON**:
 
 ``` JSON
 "source": "${payload.sauceBossData.properties.selectedSauceImg}",
@@ -94,4 +94,30 @@ text](/images/a2-e02_16_add-medium-hub-sauce-text.gif)
 
 **2.19** Paste the code into your **documents/recipeintent.json** and save
 
-**2.20** Click deploy.
+**2.20** Open your **index.js** file and find the comment that says, 
+`//TODO - Activity 2 - remove the String content inside the .speak() command` and remove the string,
+inside the `speak()` function. Upon doing so your code should appear as it does below:
+
+``` javascript
+    .speak("")
+```
+
+**2.21** In your **index.js** find the comment that says 
+`//TODO - Activity 2 - uncomment the below lines` and uncomment the lines.
+
+Upon removing the comments your code should look like:
+
+``` javascript
+    .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        token: 'sauceboss',
+        version: '1.0',
+        document: require('./documents/recipeintent.json'), 
+        datasources: constructRecipeDataSource(itemName, recipe) //NOTE HERE THAT WE ARE DYNAMICALLY POPULATING THE DATASOURCE WITH ANOTHER METHOD
+    })
+```
+
+**2.22** Click deploy.
+
+**2.23** You can now test your skill using the testing skill by typing 
+`ask sauce boss how to make pesto`.
