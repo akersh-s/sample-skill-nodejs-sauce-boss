@@ -24,8 +24,8 @@ Uncomment directive that has the same basic elements as the following code snipp
 ``` javascript
 .addDirective({ 
     type : 'Alexa.Presentation.APL.RenderDocument', 
-    datasources: recipes, 
-    document: require('./documents/launchrequest.json') 
+    document: require('./documents/launchrequest.json'),
+    datasources: {} 
 })
 ```
 
@@ -51,19 +51,7 @@ Uncomment directive that has the same basic elements as the following code snipp
       .addDirective({
         type: 'Alexa.Presentation.APL.RenderDocument',
         document: require('./documents/launchrequest.json'),
-        datasources: {
-          "sauceBossData": {
-            "type": "object",
-            "properties": {
-              "hintString": "How do I make barbecue sauce?"
-            },
-            "transformers": [{
-              "inputPath": "hintString",
-              "transformer": "textToHint"
-            }]
-          }
-        }
-
+        datasources: {}
       })
       .getResponse();
 ```
