@@ -6,10 +6,9 @@ weight: 1
 
 > **Note**
 > 
-> For this part of the activity, we will be updating our
+> For this part of the activity, we will be creating and updating our
 > **RecipeIntent**'s APL Document.
-> Make sure that you have saved any changes you've made in the [APL authoring
-tool](https://developer.amazon.com/alexa/console/ask/displays/) to your **launchrequest.json** 
+> Make sure that you have saved any changes you've made in the [APL authoring tool](https://developer.amazon.com/alexa/console/ask/displays/) to your **launchrequest.json** APL Document.
 
 **2.1.** First start by opening up the [APL authoring
 tool](https://developer.amazon.com/alexa/console/ask/displays/).
@@ -28,15 +27,15 @@ into the code editor.
 
 ![Steps 2.1 to 2.4](/images/a2-e02_01-05.gif)
 
-At this point we’ve created an APL Document that has an image and an
-Alexa header hardcoded to **pizza sauce**.
+At this point we’ve created an APL Document that has an
+Alexa header hardcoded to **How to make Pizza Sauce**.
 
 Let’s add a few additional components for when a user says, "tell me
-more about pizza sauce." We want to show image of the sauce and the
+more about pizza sauce." We want to show an image of the sauce and the
 recipe. Next we will add an image component and text component to our
 APL Document. Let’s start with the image component.
 
-**2.5** In the code editor, go to **line 77** and paste the following
+**2.5** In the code editor, go to **line 77**, and on a new line paste the following
 **JSON** snippet into your template.
 
 **Image Component.**
@@ -65,7 +64,7 @@ Now that we’ve added the image component, we’ll add our text component
 which we will also wrap in a scroll view.
 
 **2.6.** In the code editor scroll to line 109 and paste the following
-**JSON** snippet into the items empty array block []
+**JSON** snippet into the **items** empty array block [].
 
 **Text component wrapped in a ScrollView.**
 
@@ -115,7 +114,7 @@ pane and select **Medium Hub**.
 ![viewport selector](/images/ui/dropdown-viewport-selector.png)
 
 **2.8.** In the code editor, go to **line 142** and insert the following
-**JSON** snippet into the items [] array.
+**JSON** snippet into the **items** empty array block [].
 
 **Large hub image component.**
 
@@ -133,8 +132,8 @@ pane and select **Medium Hub**.
 ![Pasting medium hub image
 component](/images/a2-e02_08-add-image-component-large.gif)
 
-**2.9.** In the code editor, go to **line 150** and paste the following
-**JSON** snippet.
+**2.9.** In the code editor, go to **line 152** and paste the following
+**JSON** snippet on the next line.
 
 ``` JSON
 ,{
@@ -160,7 +159,7 @@ component](/images/a2-e02_08-add-image-component-large.gif)
 
 > **Note**
 > 
-> Make sure to paste the snippet after the `}` on line 150. Otherwise
+> Make sure to paste the snippet after the `}` on **line 152**. Otherwise
 > the **JSON** will be malformed which will throw an error.
 
 ![Pasting the medium hub text
