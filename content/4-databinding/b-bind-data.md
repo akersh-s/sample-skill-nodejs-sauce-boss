@@ -13,7 +13,7 @@ handle showing recipes for all our sauces. Like a boss.
 
 **2.10.** In the [APL authoring
 tool](https://developer.amazon.com/alexa/console/ask/displays/) go to
-**line 65** and paste the following **JSON** Snippet below:
+**line 65** and paste the following **JSON** Snippet below on a new line:
 
 ``` JSON
 "parameters": [
