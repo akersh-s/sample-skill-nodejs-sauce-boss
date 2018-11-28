@@ -15,9 +15,10 @@ document. We’re going to be pasting this into your skill.
 created earlier and paste the document from the **APL Authoring Tool**
 into this file.
 
-**1.16** Now open `index.js` and find the `lauchRequestHandler`. Find
+**1.16** Now open `index.js` and find the `LaunchRequestHandler`. Find
 the `responsebuilder` API. It should be around `line 73`. 
-Uncomment directive that has the same basic elements as the following code snippet.
+paste the following code directive below the comment that says 
+`//TODO YOU WILL ADD CODE FROM ACTIVITY 1 HERE`.
 
 **Add the APL directive.**
 
