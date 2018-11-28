@@ -71,6 +71,33 @@ Now that transformers have been added to the **JSON** data, we now need
 to update our APL Document so it uses the transformed version of our
 **selectedSauceText**.
 
+Now your full datasource should look something like the following:
+``` JSON
+{
+	"sauceBossData": {
+		"type": "object",
+		"properties": {
+			"selectedSauce": "pesto",
+			"selectedSauceText": "To make pesto, combine basil, garlic, Parmesan cheese, olive oil, and pine nuts in a food processor or blender. Blend to a smooth paste. Add parsley if desired.",
+			"selectedSauceSsml": "<speak>To make pesto, combine basil, garlic, Parmesan cheese, olive oil, and pine nuts in a food processor or blender. Blend to a smooth paste. Add parsley if desired.</speak>",
+			"selectSauceCaps": "PESTO",
+			"selectedSauceImg": "https://s3.amazonaws.com/sauceboss/pesto-sauce-500x500.png"
+		}
+	},
+	"transformers": [{
+			"inputPath": "selectedSauceSsml",
+			"outputName": "selectedSauceSpeech",
+			"transformer": "ssmlToSpeech"
+		},
+		{
+			"inputPath": "selectedSauceSsml",
+			"outputName": "selectedSauceText",
+			"transformer": "ssmlToText"
+		}
+	]
+}
+```
+
 **3.6.** In the APL Authoring Tool, click on ![start from
 scratch](/images/ui/start-from-scratch.png), go to **line 164** and paste
 the following **JSON** snippet on the line below.

@@ -23,7 +23,7 @@ View.
 **Before:** ![Layout View](/images/ui/toggle-layout-view.png) **After:**
 ![Code View](/images/ui/toggle-code-view.png)
 
-**2.4.** Paste the [starter template](https://github.com/akersh-s/sample-skill-nodejs-sauce-boss/blob/master/workshop/a2/activity2-recipeintent-before.json)
+**2.4.** Paste the [starter template](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/workshop/a2/activity2-recipeintent-before.json)
 into the code editor.
 
 ![Steps 2.1 to 2.4](/images/a2-e02_01-05.gif)
@@ -65,7 +65,7 @@ Now that we’ve added the image component, we’ll add our text component
 which we will also wrap in a scroll view.
 
 **2.6.** In the code editor scroll to line 109 and paste the following
-**JSON** snippet.
+**JSON** snippet into the items empty array block []
 
 **Text component wrapped in a ScrollView.**
 
@@ -88,7 +88,9 @@ which we will also wrap in a scroll view.
                 "width": "75vw",
                 "textAlign": "center",
                 "fontSize": "7vh",
-                "fontWeight": 300
+                "fontWeight": "300",
+                "id": "recipeText",
+                "style": "textStyleKaraoke"
             }
         ]
     }
@@ -113,7 +115,7 @@ pane and select **Medium Hub**.
 ![viewport selector](/images/ui/dropdown-viewport-selector.png)
 
 **2.8.** In the code editor, go to **line 142** and insert the following
-**JSON** snippet.
+**JSON** snippet into the items [] array.
 
 **Large hub image component.**
 
@@ -147,7 +149,9 @@ component](/images/a2-e02_08-add-image-component-large.gif)
                 "type": "Text",
                 "text": "To make pizza sauce, mix together 1 can tomato sauce and 1 can tomato paste in a medium bowl until smooth. Stir in 1 tablespoon oregano, 1 1/2 teaspoons dried minced garlic, and 1 teaspoon paprika.",
                 "fontSize": "6vh",
-                "fontWeight": 300
+                "fontWeight": "300",
+                "id": "recipeText",
+                "style": "textStyleKaraoke"
             }
         ]
     }
