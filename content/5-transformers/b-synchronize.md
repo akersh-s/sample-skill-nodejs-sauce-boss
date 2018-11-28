@@ -36,14 +36,14 @@ command.
 
 ![storyboard recipe](/images/storyboard-recipe.png)
 
-**3.4.** Go to the APL Authoring Tool and open your **RecipeIntent** APL
+**3.6.** Go to the APL Authoring Tool and open your **RecipeIntent** APL
 Document and data in the code editor.
 
 Now that we’ve got our APL Document set up in the authoring tool. We’re
 going to add the **ssmlToSpeech** and **ssmlToText** transformers to our
 template and data object.
 
-**3.5.** Click on ![Data JSON](/images/ui/data-json.png) go to **line 9**
+**3.7.** Click on ![Data JSON](/images/ui/data-json.png) go to **line 9**
 and paste the following **JSON** snippet.
 
 **Speech Synchronization Transformers.**
@@ -71,34 +71,7 @@ Now that transformers have been added to the **JSON** data, we now need
 to update our APL Document so it uses the transformed version of our
 **selectedSauceText**.
 
-Now your full datasource should look something like the following:
-``` JSON
-{
-	"sauceBossData": {
-		"type": "object",
-		"properties": {
-			"selectedSauce": "pesto",
-			"selectedSauceText": "To make pesto, combine basil, garlic, Parmesan cheese, olive oil, and pine nuts in a food processor or blender. Blend to a smooth paste. Add parsley if desired.",
-			"selectedSauceSsml": "<speak>To make pesto, combine basil, garlic, Parmesan cheese, olive oil, and pine nuts in a food processor or blender. Blend to a smooth paste. Add parsley if desired.</speak>",
-			"selectSauceCaps": "PESTO",
-			"selectedSauceImg": "https://s3.amazonaws.com/sauceboss/pesto-sauce-500x500.png"
-		}
-	},
-	"transformers": [{
-			"inputPath": "selectedSauceSsml",
-			"outputName": "selectedSauceSpeech",
-			"transformer": "ssmlToSpeech"
-		},
-		{
-			"inputPath": "selectedSauceSsml",
-			"outputName": "selectedSauceText",
-			"transformer": "ssmlToText"
-		}
-	]
-}
-```
-
-**3.6.** In the APL Authoring Tool, click on ![start from
+**3.8.** In the APL Authoring Tool, click on ![start from
 scratch](/images/ui/start-from-scratch.png), go to **line 164** and paste
 the following **JSON** snippet on the line below.
 
@@ -111,15 +84,18 @@ the following **JSON** snippet on the line below.
 ![Adding the data binding for the speech
 property](/images/a3-e03_06_add-data-binding-the-speech-property.gif)
 
-Now that we’ve updated or APL Document, we have one last task to perform
-in order to get our skill to use Speech Synchronization. In the next
-step, we’ll add the command to our skill code so our skill will speak
-the transformed **selectedSauceText**. We will do this in two steps.
-First we’ll add a token to our **Alexa.Presentation.APL.RenderDocument**
-directive and we’ll add the **Alexa.Presentation.APL.ExecuteCommands**
-directive to our skill’s response.
+Now that we’ve updated or APL Document, You'll need to save it.
 
-**3.7.** Go to your **index.js** skill code file and look for the
+**3.9.** Copy your **recipeintent.json** file from the **APL Authoring Tool** and save it in the 
+**code editor** in the **Amazon Developer Portal**.
+
+We have one last task to perform in order to get our skill to use Speech Synchronization. In the 
+next step, we’ll add the command to our skill code so our skill will speak the transformed 
+**selectedSauceText**. We will do this in two steps. First we’ll add a token to our 
+**Alexa.Presentation.APL.RenderDocument** directive and we’ll add the 
+**Alexa.Presentation.APL.ExecuteCommands** directive to our skill’s response.
+
+**3.10.** Go to your **index.js** skill code file and look for the
 comment `// TODO Activity 3.7 - uncomment the token below` and remove
 the comment.
 
@@ -132,12 +108,12 @@ look like:
 .addDirective({
     type: 'Alexa.Presentation.APL.RenderDocument',
     token: 'sauceboss',
-    document: require('./templates/recipeintent.json'),
+    document: require('./documents/recipeintent.json'),
     datasources: constructRecipeDataSource(itemName, recipe)
 })
 ```
 
-**3.8.** In your **index.js** file look for the comment `// TODO
+**3.11.** In your **index.js** file look for the comment `// TODO
 Activity 3.8 - uncomment the token below` and uncomment line containing
 the token.
 

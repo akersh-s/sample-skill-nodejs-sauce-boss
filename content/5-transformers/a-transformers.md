@@ -72,7 +72,7 @@ the authoring tool so you'll need to update the CODE tab in the developer portal
 
 **3.4.** Copy and paste the updated **LaunchRequest** template back into **launchrequest.json**. 
 
-The [APL Authoring Tool]() allows you to visualize your document with hard-coded data. But we need
+The **APL Authoring Tool** allows you to visualize your document with hard-coded data. But we need
 to source the data from our skill's code. To do that we need to update the **datasource** in our
 **index.js** file.
 
