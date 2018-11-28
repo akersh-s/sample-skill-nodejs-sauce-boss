@@ -19,7 +19,7 @@ Portal window.
 
 ![Updating the **index.js** file](/images/a0-e11_12_create-index.js.gif)
 
-**14.** Click on the **package.json** file. Copy the following JSON, and replace the existing contents of the file by Pasting. Click Save.
+**14.** Double-click on the **package.json** file. Copy the following JSON, and replace the existing contents of the file by Pasting. Click Save.
 
 **package.json.**
 
