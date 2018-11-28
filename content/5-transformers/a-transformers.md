@@ -54,8 +54,9 @@ Now that we’ve added the `hintString` property, we have to update our
 **LaunchRequest** template’s footer to use it.
 
 **3.3.** In the code editor click on ![start from
-scratch](/images/ui/start-from-scratch.png) go to **line 303** for the footerHint and
-update the value with your new transformed hintString. The line should now look like the following **JSON** snippet.
+scratch](/images/ui/start-from-scratch.png) and look for the footerHint and
+update the value with your new transformed hintString. The line should now look like the 
+following **JSON** snippet.
 
 **footerHint data-binding.**
 
@@ -67,7 +68,16 @@ update the value with your new transformed hintString. The line should now look 
 hintString](/images/a3-e03_03_add-data-bind-hintString.gif)
 
 At this point your template is ready to test on device\! It wont work in
-the authoring tool so you'll need to update the CODE tab in the developer portal. Copy and paste the updated  **LaunchRequest** template back into launchrequest.json and within index.js you will need to update the datasources object with your LaunchRequestHandler method. Your launch request should now look the following:
+the authoring tool so you'll need to update the CODE tab in the developer portal. 
+
+**3.4.** Copy and paste the updated **LaunchRequest** template back into **launchrequest.json**. 
+
+The [APL Authoring Tool]() allows you to visualize your document with hard-coded data. But we need
+to source the data from our skill's code. To do that we need to update the **datasource** in our
+**index.js** file.
+
+**3.5.** Open your **index.js** you will need to update the datasources object with your **LaunchRequestHandler**. 
+Your launch request should now look like. following:
 
 ``` javascript
     let response = handlerInput.responseBuilder
