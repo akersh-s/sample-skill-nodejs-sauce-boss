@@ -17,8 +17,9 @@ weight: 2
 > separate them from your coding logic.
 
 **1.3.** Create a new file called **launchrequest.json** in your newly
-created **documents** folder. It'll remain empty for now. We’ll 
-populate once we have a complete APL document from later in this exercise.
+created **documents** folder. The path in the new file menu should appear as **lambda/documents/launchrequest.json**. 
+It'll remain empty for now. We’ll populate once we have a complete APL document from later in this 
+exercise.
 
 **1.4.** In a new browser tab, open the **APL Authoring Tool**. You can
 do so by selecting the option for **Display** on the left hand
@@ -101,7 +102,8 @@ viewport. Let’s go ahead and add this background.
 > We can set dynamic resources by setting a condition with the `when`
 > parameter.
 
-**1.9.** Scroll down to `resources` on `line 19`. Observe the code on `line 22`:
+**1.9.** Scroll down to `resources` on `line 19`, move your cursor to the end of the line, hit 
+**enter** on your keyboard and paste the following json snippet:
 
 **Add the Background Resource to the Small Round Hub.**
 
@@ -115,7 +117,7 @@ viewport. Let’s go ahead and add this background.
         "backgroundRight": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-right-smHub.png",
         "backgroundSecret": "https://s3.amazonaws.com/sauceboss/sauceBoss-background-secret-smHub.png"
     }
-}
+},
 ```
 
   - Using a `when` parameter allows us to specify when a resource is
@@ -177,8 +179,13 @@ Hint: This should be in the second container as the first item.
     {
       "when": "${@viewportProfile == @hubLandscapeMedium || @viewportProfile == @hubLandscapeLarge || @viewportProfile == @tvLandscapeXLarge}",
       "type": "AlexaFooter",
-      "footerHint": "BROKEN FOOTER"
+      "footerHint": "How do I make Pesto sauce?"
     },
 ```
 
  - Like the header layout, the `AlexaFooter` is defined with it's own parameters.
+
+ > **Note**
+ >
+ > Change the View from **Small Hub** to **Medium Hub** to see your hint appear at the bottom of the
+ > Echo Show's display.
