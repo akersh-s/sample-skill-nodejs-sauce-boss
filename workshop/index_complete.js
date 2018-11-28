@@ -78,7 +78,7 @@ const LaunchRequestHandler = {
           "sauceBossData": {
             "type": "object",
             "properties": {
-              "hintString": "How do I make barbecuesauce?"
+              "hintString": "How do I make pesto?"
             },
             "transformers": [{
               "inputPath": "hintString",
