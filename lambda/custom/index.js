@@ -70,23 +70,24 @@ const LaunchRequestHandler = {
     let response = handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(repromptOutput)
-      // .addDirective({
-      //   type: 'Alexa.Presentation.APL.RenderDocument',
-      //   document: require('./documents/launchrequest.json'),
-      //   datasources: {
-      //     "sauceBossData": {
-      //       "type": "object",
-      //       "properties": {
-      //         "hintString": "How do I make barbecuesauce?"
-      //       },
-      //       "transformers": [{
-      //         "inputPath": "hintString",
-      //         "transformer": "textToHint"
-      //       }]
-      //     }
-      //   }
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        document: require('./documents/launchrequest.json'),
+        datasources: {
+          "sauceBossData": {
+            "type": "object",
+            "properties": {
+              "hintString": "How do I make pesto?"
+            },
+            "transformers": [{
+              "inputPath": "hintString",
+              "transformer": "textToHint"
+            }]
+          }
+        }
 
-      // })
+      })
       .getResponse();
 
     return response;
@@ -97,9 +98,9 @@ const RecipeHandler = {
   canHandle(handlerInput) {
     return ((handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
         handlerInput.requestEnvelope.request.intent.name === 'RecipeIntent') 
-        //TODO Activity 4: accept Touch Event (Alexa.Presentation.APL.UserEvent)
-        );
-    
+        ||
+      (handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent'));
+    // && handlerInput.requestEnvelope.request.source.handler === 'Press'));
   },
   handle(handlerInput) {
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -107,10 +108,9 @@ const RecipeHandler = {
 
     let itemName;
 
-    //TODO Activity 4: Support logic for Touch Request -  
-    // Update IF conditional and set item name to the argument received in the requestEnvelope
-    if (false) {
-      
+    //Touch Event Request
+    if (handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent') {
+      itemName = (handlerInput.requestEnvelope.request.arguments[0]).toLowerCase();
     } else {
       //Voice Intent Request
       const itemSlot = handlerInput.requestEnvelope.request.intent.slots.Item;
@@ -118,7 +118,6 @@ const RecipeHandler = {
         itemName = itemSlot.value.toLowerCase();
       }
     }
-
     //special cleanup for bbq sauce 
     itemName = itemName.replace("bbq", "barbecue").replace(" sauce", "");
 
@@ -131,6 +130,7 @@ const RecipeHandler = {
 
     if (recipe) {
       sessionAttributes.speakOutput = recipe;
+      //sessionAttributes.repromptSpeech = requestAttributes.t('RECIPE_REPEAT_MESSAGE');
       handlerInput.attributesManager.setSessionAttributes(sessionAttributes);
 
       let response = handlerInput.responseBuilder
@@ -138,15 +138,14 @@ const RecipeHandler = {
         .withSimpleCard(cardTitle, recipe)
         .addDirective({
           type: 'Alexa.Presentation.APL.RenderDocument',
-          // TODO Activity 3.7 - uncomment the token below
-          // token: 'sauceboss',
+          token: 'sauceboss',
+          version: '1.0',
           document: require('./documents/recipeintent.json'),
           datasources: constructRecipeDataSource(itemName, recipe)
         })
         .addDirective({
           type: 'Alexa.Presentation.APL.ExecuteCommands',
-          // TODO Activity 3.8 - uncomment the token below
-          // token: 'sauceboss',
+          token: 'sauceboss',
           commands: [{
             type: 'SpeakItem',
             componentId: 'recipeText',
@@ -196,10 +195,31 @@ const HelpHandler = {
     let response = handlerInput.responseBuilder
       .speak(sessionAttributes.speakOutput)
       .reprompt(sessionAttributes.repromptSpeech)
-      //TODO Extra Credit - add help screen
+      .addDirective({
+        type: 'Alexa.Presentation.APL.RenderDocument',
+        version: '1.0',
+        datasources: recipes,
+        document: require('./documents/helpintent.json')
+      })
       .getResponse();
 
     return response;
+  },
+};
+
+const TouchEventHandler = {
+  canHandle(handlerInput) {
+    return handlerInput.requestEnvelope.request.type === 'Alexa.Presentation.APL.UserEvent' &&
+      handlerInput.requestEnvelope.request.source.handler === 'Press';
+  },
+  handle(handlerInput) {
+    let sauce = handlerInput.requestEnvelope.request.arguments[0];
+
+
+    return handlerInput.responseBuilder
+      .speak(sessionAttributes.speakOutput)
+      .reprompt(sessionAttributes.repromptSpeech)
+      .getResponse();
   },
 };
 
