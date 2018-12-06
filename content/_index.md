@@ -3,6 +3,15 @@ title: "Sauce Boss"
 
 ---
 
+_Thank you for participating in our re:Invent ALX-314 Workshop!<br/>
+For those that did not get a chance to complete the entire activity or wish to check their work, you can find the completed files at the links below: <br/>
+- [index.js](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/index.js)
+- [launchrequest.json](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/documents/launchrequest.json)
+- [recipeintent.json](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/documents/recipeintent.json)
+- [helpintent.json](https://raw.githubusercontent.com/akersh-s/sample-skill-nodejs-sauce-boss/master/lambda/custom/documents/helpintent.json)
+
+_
+
 # Getting Started
 
 ![Welcome image](https://m.media-amazon.com//images/G/01/DeveloperBlogs/AlexaBlogs/AlexaSkillsKit/Elon_blogv2._CB483497788_.png)
